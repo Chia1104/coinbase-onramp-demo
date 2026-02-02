@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "@repo/kv",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./clients": {
+      "types": "./src/clients.ts",
+      "default": "./src/clients.ts"
+    },
+    "./env": {
+      "types": "./src/env.ts",
+      "default": "./src/env.ts"
+    },
+    "./upstash": {
+      "types": "./src/upstash/client.ts",
+      "default": "./src/upstash/client.ts"
+    },
+    "./upstash/with-rate-limiter": {
+      "types": "./src/upstash/with-rate-limiter.ts",
+      "default": "./src/upstash/with-rate-limiter.ts"
+    },
+    "./drizzle/cache": {
+      "types": "./src/drizzle/cache.ts",
+      "default": "./src/drizzle/cache.ts"
+    }
+  },
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules dist .cache",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "type:check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@keyv/postgres": "^2.2.3",
+    "@keyv/redis": "^5.1.6",
+    "@keyv/valkey": "^1.0.11",
+    "@repo/utils": "workspace:*",
+    "@t3-oss/env-core": "catalog:",
+    "@upstash/ratelimit": "2.0.8",
+    "@upstash/redis": "1.36.1",
+    "drizzle-orm": "^0.45.1",
+    "keyv": "^5.6.0",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@chiastack/tsconfig": "catalog:chiastack",
+    "@keyv/test-suite": "^2.1.2",
+    "typescript": "catalog:"
+  }
+}

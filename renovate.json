@@ -1,0 +1,79 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "labels": ["dependencies", "renovate"],
+  "rebaseWhen": "conflicted",
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "groupName": "react",
+      "matchPackageNames": [
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom"
+      ]
+    },
+    {
+      "groupName": "orpc",
+      "matchPackageNames": ["/@orpc/*/"]
+    },
+    {
+      "groupName": "fumadocs",
+      "matchPackageNames": ["/@fumadocs/*/", "/fumadocs-*/"]
+    },
+    {
+      "enabled": false,
+      "matchPackageNames": ["/^@repo/*/", "/tsconfig/", "/node/", "/go/"]
+    },
+    {
+      "groupName": "playwright",
+      "matchPackageNames": [
+        "/^@playwright//",
+        "/^mcr.microsoft.com/playwright/"
+      ]
+    },
+    {
+      "groupName": "heroui",
+      "matchPackageNames": ["@heroui/react", "@heroui/styles"]
+    },
+    {
+      "groupName": "drizzle",
+      "matchPackageNames": ["drizzle-orm", "drizzle-kit", "drizzle-zod"]
+    },
+    {
+      "groupName": "ai-sdk",
+      "matchPackageNames": [
+        "@ai-sdk/anthropic",
+        "@ai-sdk/google",
+        "@ai-sdk/openai"
+      ]
+    },
+    {
+      "groupName": "Hono",
+      "groupSlug": "hono",
+      "matchPackageNames": ["hono", "honox", "@hono{/,}**"]
+    },
+    {
+      "groupName": "oxc",
+      "matchPackageNames": ["oxfmt", "oxlint"]
+    },
+    {
+      "groupName": "tanstack",
+      "matchPackageNames": [
+        "@tanstack/react-pacer",
+        "@tanstack/react-query",
+        "@tanstack/react-query-devtools"
+      ]
+    },
+    {
+      "groupName": "better-auth",
+      "matchPackageNames": ["@better-auth/passkey", "better-auth"]
+    },
+    {
+      "groupName": "chiastack",
+      "matchPackageNames": ["@chiastack/tsconfig"]
+    }
+  ],
+  "updateInternalDeps": true
+}

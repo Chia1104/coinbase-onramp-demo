@@ -1,0 +1,16 @@
+{
+  "extends": "@chiastack/tsconfig/react.json",
+  "compilerOptions": {
+    "types": ["node", "bun-types", "vitest/globals"],
+    "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true,
+    "declaration": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts",
+    "__tests__",
+    "plugins/**/*.ts"
+  ]
+}

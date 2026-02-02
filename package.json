@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "coinbase-onramp-demo",
+  "version": "3.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Chia1104",
+    "email": "yuyuchia7423@gmail.com",
+    "url": "https://github.com/chia1104"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "postinstall": "manypkg check",
+    "prepare": "husky",
+    "build": "turbo run build",
+    "dev": "turbo run dev --continue --concurrency=15",
+    "start": "turbo run start --parallel",
+    "lint": "turbo run lint --continue",
+    "lint:fix": "turbo run lint:fix --continue",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "type:check": "turbo run type:check --parallel",
+    "clean": "git clean -xdf node_modules .cache",
+    "clean:workspaces": "turbo clean --parallel",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "db:up": "docker-compose -f db.docker-compose.yaml up",
+    "db:generate": "turbo run db:generate",
+    "db:migrate": "turbo run db:migrate",
+    "db:pull": "turbo run db:pull",
+    "db:push": "cd packages/db && pnpm run db:push",
+    "db:init": "turbo run db:init --parallel",
+    "db:seed": "turbo run db:seed --parallel",
+    "db:studio": "turbo run db:studio --parallel",
+    "test:e2e": "turbo run test:e2e",
+    "graph": "nx graph"
+  },
+  "devDependencies": {
+    "@manypkg/cli": "^0.25.1",
+    "@playwright/test": "^1.58.1",
+    "@total-typescript/ts-reset": "0.6.1",
+    "@turbo/gen": "^2.8.1",
+    "@vitest/coverage-v8": "catalog:testing-library",
+    "@vitest/ui": "catalog:testing-library",
+    "cross-env": "10.1.0",
+    "dotenv": "^17.2.3",
+    "eslint-plugin-turbo": "^2.8.1",
+    "happy-dom": "^20.4.0",
+    "husky": "^9.1.7",
+    "jest-extended": "catalog:testing-library",
+    "lint-staged": "^16.2.7",
+    "msw": "^2.12.7",
+    "nx": "^22.4.4",
+    "oxfmt": "catalog:oxc",
+    "oxlint": "catalog:oxc",
+    "tsx": "^4.21.0",
+    "turbo": "2.8.1",
+    "typescript": "catalog:",
+    "vitest": "catalog:testing-library"
+  },
+  "lint-staged": {
+    "*.{js,jsx,cjs,mjs,ts,mts,tsx}": [
+      "oxfmt --no-error-on-unmatched-pattern"
+    ],
+    "*.{json,md}": [
+      "oxfmt --no-error-on-unmatched-pattern"
+    ]
+  },
+  "engines": {
+    "node": ">=22",
+    "pkl": ">=0.25.2"
+  },
+  "packageManager": "pnpm@10.28.2",
+  "manypkg": {
+    "ignoredRules": [
+      "ROOT_HAS_PROD_DEPENDENCIES"
+    ],
+    "workspaceProtocol": "require"
+  }
+}

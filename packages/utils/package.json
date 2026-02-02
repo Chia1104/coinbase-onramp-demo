@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "@repo/utils",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./day": {
+      "types": "./src/day/index.ts",
+      "default": "./src/day/index.ts"
+    },
+    "./delay": {
+      "types": "./src/delay/index.ts",
+      "default": "./src/delay/index.ts"
+    },
+    "./error-helper": {
+      "types": "./src/error-helper/index.ts",
+      "default": "./src/error-helper/index.ts"
+    },
+    "./format": {
+      "types": "./src/format/index.ts",
+      "default": "./src/format/index.ts"
+    },
+    "./is": {
+      "types": "./src/is/index.ts",
+      "default": "./src/is/index.ts"
+    },
+    "./server": {
+      "types": "./src/server/index.ts",
+      "default": "./src/server/index.ts"
+    }
+  },
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules dist .cache",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "type:check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "catalog:",
+    "dayjs": "catalog:",
+    "ky": "catalog:",
+    "lodash": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@chiastack/tsconfig": "catalog:chiastack",
+    "@types/express": "^5.0.6",
+    "typescript": "catalog:"
+  }
+}

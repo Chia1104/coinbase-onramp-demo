@@ -1,0 +1,48 @@
+{
+  "name": "service",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nitro dev",
+    "build": "nitro build",
+    "postbuild": "cp scripts/postbuild/resources/tslib.js .output/server/node_modules/tslib/tslib.js",
+    "node:start": "node .output/server/index.mjs",
+    "start": "bun run --bun .output/server/index.mjs",
+    "node:preview": "node --env-file=.env .output/server/index.mjs",
+    "type:check": "tsc --noEmit",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
+  },
+  "dependencies": {
+    "@hono/sentry": "^1.2.2",
+    "@hono/zod-validator": "^0.7.6",
+    "@orpc/contract": "catalog:orpc",
+    "@orpc/server": "catalog:orpc",
+    "@repo/api": "workspace:*",
+    "@repo/kv": "workspace:*",
+    "@repo/utils": "workspace:*",
+    "@t3-oss/env-core": "catalog:",
+    "@workflow-worlds/redis": "^0.1.0",
+    "@workflow/world-postgres": "4.1.0-beta.29",
+    "better-all": "catalog:",
+    "better-auth": "catalog:better-auth",
+    "dayjs": "catalog:",
+    "hono": "^4.11.7",
+    "hono-rate-limiter": "^0.5.3",
+    "ky": "catalog:",
+    "lodash": "catalog:",
+    "nitro": "3.0.1-alpha.2",
+    "react": "catalog:react-is",
+    "react-dom": "catalog:react-is",
+    "workflow": "4.0.1-beta.50",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@chiastack/tsconfig": "catalog:chiastack",
+    "@types/lodash": "catalog:",
+    "@types/node": "catalog:",
+    "bun-types": "catalog:",
+    "typescript": "catalog:"
+  }
+}

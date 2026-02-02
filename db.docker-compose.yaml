@@ -1,0 +1,25 @@
+services:
+  postgres:
+    container_name: coinbase-onramp-demo-postgres
+    image: pgvector/pgvector:pg18
+    ports:
+      - "5433:5432"
+    volumes:
+      - coinbase-onramp-demo-postgres:/var/lib/postgresql/data/pgdata
+    env_file:
+      - .env.global
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - DEBUG=true
+
+  redis:
+    container_name: coinbase-onramp-demo-redis
+    image: redis:alpine
+    ports:
+      - "6380:6379"
+    volumes:
+      - coinbase-onramp-demo-redis:/data
+
+volumes:
+  coinbase-onramp-demo-postgres:
+  coinbase-onramp-demo-redis:

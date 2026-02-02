@@ -1,0 +1,10 @@
+{
+  "extends": "@chiastack/tsconfig/base.json",
+  "include": ["src", "vitest.config.mts", "__tests__", "index.ts"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "types": ["vitest/globals"],
+    "lib": ["ES2024", "dom", "dom.iterable"],
+    "allowImportingTsExtensions": true
+  }
+}

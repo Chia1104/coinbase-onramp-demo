@@ -1,0 +1,10 @@
+{
+  "extends": "@chiastack/tsconfig/base.json",
+  "compilerOptions": {
+    "types": ["vitest/globals"],
+    "lib": ["ES2022", "dom", "dom.iterable"],
+    "jsx": "preserve"
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,67 @@
+import { sentry } from "@hono/sentry";
+import type { Hono, Schema } from "hono";
+import { cors } from "hono/cors";
+import { ipRestriction } from "hono/ip-restriction";
+import { logger } from "hono/logger";
+
+import { getClientIP } from "@repo/utils/server";
+
+import { env } from "./env";
+import { maintenance } from "./middlewares/maintenance.middleware";
+import { splitString } from "./utils";
+import { getCORSAllowedOrigin } from "./utils/cors.util";
+
+const bootstrap = <
+  TContext extends HonoContext,
+  TSchema extends Schema,
+  TApp extends Hono<TContext, TSchema>,
+>(
+  app: TApp
+) => {
+  /**
+   * logger middleware
+   */
+  app.use(logger());
+
+  /**
+   * Sentry middleware
+   */
+  app.use(
+    sentry({
+      dsn: env.SENTRY_DSN,
+      enabled: env.NODE_ENV === "production" && !!env.ZEABUR_SERVICE_ID,
+    })
+  );
+
+  /**
+   * Maintenance mode middleware
+   */
+  app.use(
+    maintenance({
+      enabled: env.MAINTENANCE_MODE === "true",
+      allowedPaths: ["/api/v1/health"],
+      bypassToken: env.MAINTENANCE_BYPASS_TOKEN,
+    })
+  );
+
+  /**
+   * CORS middleware
+   */
+  app.use(
+    cors({
+      origin: getCORSAllowedOrigin(),
+      credentials: true,
+    })
+  );
+
+  app.use(
+    ipRestriction((c) => getClientIP(c.req.raw), {
+      denyList: splitString(env.IP_DENY_LIST),
+      allowList: splitString(env.IP_ALLOW_LIST),
+    })
+  );
+
+  return app;
+};
+
+export default bootstrap;

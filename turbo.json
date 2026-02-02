@@ -1,0 +1,123 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".cache/tsbuildinfo.json", "dist/**"]
+    },
+    "debug:build": {
+      "outputs": [".cache/tsbuildinfo.json", "dist/**"]
+    },
+    "lint": {},
+    "lint:fix": {},
+    "type:check": {},
+    "test": {
+      "outputs": ["coverage/**"],
+      "cache": true
+    },
+    "test:watch": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev:turbo": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "cache": false
+    },
+    "debug:start": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "test:e2e": {},
+    "db:seed": {
+      "cache": false
+    },
+    "db:studio": {
+      "cache": false,
+      "interactive": true
+    },
+    "service-graph": {},
+    "ui-add": {
+      "cache": false,
+      "interactive": true
+    },
+    "db:generate": {
+      "cache": false,
+      "interactive": true
+    },
+    "db:migrate": {
+      "cache": false,
+      "interactive": true
+    },
+    "db:pull": {
+      "cache": false,
+      "interactive": true
+    }
+  },
+  "globalEnv": [
+    "APP_CODE",
+    "BASE_URL",
+    "SITE_URL",
+    "HOST",
+    "PORT",
+    "NODE_ENV",
+    "ANALYZE",
+    "CI",
+    "SKIP_ENV_VALIDATION",
+    "VERCEL",
+    "ZEABUR_URL",
+    "VERCEL_URL",
+    "RAILWAY_STATIC_URL",
+    "RAILWAY_PUBLIC_DOMAIN",
+    "RAILWAY_ENVIRONMENT_NAME",
+    "ZEABUR_ENVIRONMENT_NAME",
+    "VERCEL_ENV",
+    "*_VERCEL_ENV",
+    "NEXT_RUNTIME",
+    "ENV",
+    "APP_ENV",
+    "GH_PUBLIC_TOKEN",
+    "INTERNAL_SERVICE_ENDPOINT",
+    "CH_API_KEY",
+    "CF_BYPASS_TOKEN",
+    "SHA_256_HASH"
+  ],
+  "globalPassThroughEnv": [
+    "APP_CODE",
+    "BASE_URL",
+    "SITE_URL",
+    "HOST",
+    "PORT",
+    "NODE_ENV",
+    "ANALYZE",
+    "CI",
+    "SKIP_ENV_VALIDATION",
+    "VERCEL",
+    "ZEABUR_URL",
+    "VERCEL_URL",
+    "RAILWAY_STATIC_URL",
+    "RAILWAY_PUBLIC_DOMAIN",
+    "RAILWAY_ENVIRONMENT_NAME",
+    "ZEABUR_ENVIRONMENT_NAME",
+    "VERCEL_ENV",
+    "*_VERCEL_ENV",
+    "NEXT_RUNTIME",
+    "ENV",
+    "APP_ENV",
+    "GH_PUBLIC_TOKEN",
+    "INTERNAL_SERVICE_ENDPOINT",
+    "CH_API_KEY",
+    "CF_BYPASS_TOKEN",
+    "SHA_256_HASH",
+    "EXPO_OS"
+  ],
+  "globalDependencies": [".env.global", ".env"]
+}
