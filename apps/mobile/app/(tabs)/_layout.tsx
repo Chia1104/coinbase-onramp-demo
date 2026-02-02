@@ -34,6 +34,12 @@ export default function Layout() {
           },
         }}>
         <Stack.Screen name="index" options={{ title: "Coinbase Onramp" }} />
+        <Stack.Screen
+          name="onramp-callback"
+          options={{
+            title: "Onramp Callback",
+          }}
+        />
       </Stack>
     </View>
   );

@@ -9,6 +9,9 @@ export const useGetOnrampUrl = (
 ) => {
   return useMutation({
     ...options,
-    mutationFn: (request) => getOnrampBuyUrl(request),
+    mutationFn: (request) =>
+      getOnrampBuyUrl(request, {
+        redirectUrl: "coinbase-onramp-demo://onramp-callback",
+      }),
   });
 };

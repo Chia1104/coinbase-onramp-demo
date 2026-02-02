@@ -16,6 +16,10 @@
 
 > 請參考官方文檔：[Getting Started with Onramp](https://docs.cdp.coinbase.com/onramp-&-offramp/introduction/getting-started#step-1:-sign-up-for-a-cdp-account)
 
+並新增允許 Redirect domain allowlist
+
+![domain allow list](./.github/public/domain-allowlist.png)
+
 ## 流程
 
 ### 架構流程圖
