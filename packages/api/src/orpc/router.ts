@@ -1,12 +1,13 @@
 import * as healthRoutes from "./routes/health.route";
 import * as onrampRoutes from "./routes/onramp.route";
-import { baseOS } from "./utils";
+import { contractOS } from "./utils";
 
-export const router = baseOS.router({
+export const router = contractOS.router({
   health: {
     server: healthRoutes.healthRoute,
   },
   onramp: {
     token: onrampRoutes.onrampTokenRoute,
+    options: onrampRoutes.onrampOptionsRoute,
   },
 });

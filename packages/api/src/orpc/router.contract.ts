@@ -3,9 +3,10 @@ import * as onrampContracts from "./contracts/onramp.contract";
 
 export const routerContract = {
   health: {
-    server: healthContracts.healthContract,
+    server: healthContracts.HealthContract,
   },
   onramp: {
-    token: onrampContracts.onrampTokenContract,
+    token: onrampContracts.OnrampTokenContract,
+    options: onrampContracts.OnrampOptionsContract,
   },
 };

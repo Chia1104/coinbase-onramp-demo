@@ -1,3 +1,4 @@
+import { useTransition } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Linking } from "react-native";
 import { View } from "react-native";
@@ -12,6 +13,7 @@ import {
   FormField,
   Surface,
   ErrorView,
+  Spinner,
 } from "heroui-native";
 import * as z from "zod";
 
@@ -27,6 +29,10 @@ const formSchema = z.object({
 });
 
 const SupportedAssets = [
+  {
+    name: "ETH",
+    value: "ETH",
+  },
   {
     name: "USDC",
     value: "USDC",
@@ -68,6 +74,7 @@ const CheckboxField = ({
 };
 
 export default function HomeScreen() {
+  const [isPending, startTransition] = useTransition();
   const { mutateAsync: getOnrampUrl } = useGetOnrampUrl();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -79,18 +86,20 @@ export default function HomeScreen() {
     },
   });
 
-  const handleGetOnrampUrl = form.handleSubmit(async (data) => {
-    const url = await getOnrampUrl({
-      addresses: [
-        {
-          address: data.address,
-          blockchains: [data.network],
-        },
-      ],
-      assets: data.assets,
+  const handleGetOnrampUrl = form.handleSubmit((data) => {
+    startTransition(async () => {
+      const url = await getOnrampUrl({
+        addresses: [
+          {
+            address: data.address,
+            blockchains: [data.network],
+          },
+        ],
+        assets: data.assets,
+      });
+      console.log("url", url);
+      await Linking.openURL(url);
     });
-    console.log("url", url);
-    await Linking.openURL(url);
   });
 
   return (
@@ -98,7 +107,7 @@ export default function HomeScreen() {
       <View className="gap-6 py-10">
         <Card>
           <Card.Header>
-            <Card.Title>Coinbase Onramp</Card.Title>
+            <Card.Title>Onramp</Card.Title>
           </Card.Header>
           <Card.Body className="gap-4">
             <Card.Description>This is a test</Card.Description>
@@ -112,9 +121,9 @@ export default function HomeScreen() {
                     <Tabs.Trigger value="ethereum">
                       <Tabs.Label>Ethereum</Tabs.Label>
                     </Tabs.Trigger>
-                    {/* <Tabs.Trigger value="tron">
+                    <Tabs.Trigger value="tron" isDisabled>
                       <Tabs.Label>Tron</Tabs.Label>
-                    </Tabs.Trigger> */}
+                    </Tabs.Trigger>
                   </Tabs.List>
                 </Tabs>
               )}
@@ -166,7 +175,8 @@ export default function HomeScreen() {
             </Surface>
           </Card.Body>
           <Card.Footer className="mt-6">
-            <Button onPress={handleGetOnrampUrl}>
+            <Button onPress={handleGetOnrampUrl} isDisabled={isPending}>
+              {isPending && <Spinner color="white" />}
               <Button.Label>Open Onramp Widget</Button.Label>
             </Button>
           </Card.Footer>

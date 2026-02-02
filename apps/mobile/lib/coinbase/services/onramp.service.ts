@@ -6,11 +6,22 @@ export type SessionTokenRequest = InferClientInputs<typeof client.onramp.token>;
 
 export const getOnrampBuyUrl = async (
   request: SessionTokenRequest,
-  redirectUrl = "exp://192.168.0.103:8081/coinbase-onramp-demo"
+  options?: {
+    redirectUrl?: string;
+    useSandbox?: boolean;
+  }
 ) => {
+  const {
+    redirectUrl = "exp://192.168.0.103:8081/coinbase-onramp-demo",
+    useSandbox = true,
+  } = options ?? {};
   const response = await client.onramp.token(request);
 
-  const url = new URL("https://pay.coinbase.com/buy/select-asset");
+  const baseUrl = useSandbox
+    ? "https://pay-sandbox.coinbase.com"
+    : "https://pay.coinbase.com";
+
+  const url = new URL(baseUrl);
   url.searchParams.set("sessionToken", response.token);
   url.searchParams.set("redirectUrl", redirectUrl);
   return url.toString();

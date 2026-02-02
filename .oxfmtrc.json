@@ -36,7 +36,8 @@
     "vscode",
     ".vscode",
     ".idea",
-    ".map.ts"
+    ".map.ts",
+    "apps/mobile/uniwind-types.d.ts"
   ],
   "experimentalSortImports": {
     "groups": [

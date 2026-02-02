@@ -33,7 +33,7 @@ export default function Layout() {
             backgroundColor: themeColorBackground,
           },
         }}>
-        <Stack.Screen name="index" />
+        <Stack.Screen name="index" options={{ title: "Coinbase Onramp" }} />
       </Stack>
     </View>
   );
