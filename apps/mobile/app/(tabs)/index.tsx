@@ -1,125 +1,177 @@
-import { useCallback } from "react";
-import { Linking, Platform, StyleSheet } from "react-native";
+import { useForm, Controller } from "react-hook-form";
+import { Linking } from "react-native";
+import { View } from "react-native";
 
-import { Image } from "expo-image";
-import { Link } from "expo-router";
-import { Button } from "heroui-native";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  Button,
+  Card,
+  TextField,
+  Tabs,
+  Checkbox,
+  FormField,
+  Surface,
+  ErrorView,
+} from "heroui-native";
+import * as z from "zod";
 
-import { HelloWave } from "@/components/hello-wave";
-import ParallaxScrollView from "@/components/parallax-scroll-view";
-import { ThemedText } from "@/components/themed-text";
-import { ThemedView } from "@/components/themed-view";
+import { PageLayout } from "@/components/page-layout";
 import { useGetOnrampUrl } from "@/lib/coinbase/hooks/use-get-onramp-url";
+
+const formSchema = z.object({
+  address: z.string().min(1),
+  network: z.enum(["ethereum"]),
+  assets: z
+    .array(z.string(), { message: "At least one asset is required" })
+    .min(1, { message: "At least one asset is required" }),
+});
+
+const SupportedAssets = [
+  {
+    name: "USDC",
+    value: "USDC",
+  },
+  {
+    name: "USDT",
+    value: "USDT",
+  },
+];
+
+interface CheckboxFieldProps {
+  isSelected: boolean;
+  onSelectedChange: (value: boolean) => void;
+  title: string;
+  description?: string;
+}
+
+const CheckboxField = ({
+  isSelected,
+  onSelectedChange,
+  title,
+  description,
+}: CheckboxFieldProps) => {
+  return (
+    <FormField isSelected={isSelected} onSelectedChange={onSelectedChange}>
+      <FormField.Indicator>
+        <Checkbox className="mt-0.5" variant="secondary" />
+      </FormField.Indicator>
+      <View className="flex-1">
+        <FormField.Label className="text-lg">{title}</FormField.Label>
+        {description && (
+          <FormField.Description className="text-base">
+            {description}
+          </FormField.Description>
+        )}
+      </View>
+    </FormField>
+  );
+};
 
 export default function HomeScreen() {
   const { mutateAsync: getOnrampUrl } = useGetOnrampUrl();
 
-  const handleGetOnrampUrl = useCallback(async () => {
-    const url = await getOnrampUrl();
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      address: "",
+      network: "ethereum",
+      assets: [],
+    },
+  });
+
+  const handleGetOnrampUrl = form.handleSubmit(async (data) => {
+    const url = await getOnrampUrl({
+      addresses: [
+        {
+          address: data.address,
+          blockchains: [data.network],
+        },
+      ],
+      assets: data.assets,
+    });
     console.log("url", url);
     await Linking.openURL(url);
-  }, [getOnrampUrl]);
+  });
 
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
-      headerImage={
-        <Image
-          source={require("@/assets/images/partial-react-logo.png")}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit{" "}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
-          to see changes. Press{" "}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: "cmd + d",
-              android: "cmd + m",
-              web: "F12",
-            })}
-          </ThemedText>{" "}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction
-              title="Action"
-              icon="cube"
-              onPress={() => alert("Action pressed")}
+    <PageLayout>
+      <View className="gap-6 py-10">
+        <Card>
+          <Card.Header>
+            <Card.Title>Coinbase Onramp</Card.Title>
+          </Card.Header>
+          <Card.Body className="gap-4">
+            <Card.Description>This is a test</Card.Description>
+            <Controller
+              name="network"
+              control={form.control}
+              render={({ field }) => (
+                <Tabs value={field.value} onValueChange={field.onChange}>
+                  <Tabs.List>
+                    <Tabs.Indicator />
+                    <Tabs.Trigger value="ethereum">
+                      <Tabs.Label>Ethereum</Tabs.Label>
+                    </Tabs.Trigger>
+                    {/* <Tabs.Trigger value="tron">
+                      <Tabs.Label>Tron</Tabs.Label>
+                    </Tabs.Trigger> */}
+                  </Tabs.List>
+                </Tabs>
+              )}
             />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert("Share pressed")}
+            <Controller
+              name="address"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <TextField isRequired isInvalid={!!fieldState.error}>
+                  <TextField.Label>Address</TextField.Label>
+                  <TextField.Input
+                    value={field.value}
+                    onChangeText={field.onChange}
+                  />
+                  <TextField.ErrorMessage>
+                    Please enter a valid address
+                  </TextField.ErrorMessage>
+                </TextField>
+              )}
             />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert("Delete pressed")}
+            <Surface className="w-full gap-2" variant="transparent">
+              <Controller
+                control={form.control}
+                name="assets"
+                render={({ field, fieldState }) => (
+                  <>
+                    {SupportedAssets.map((asset) => (
+                      <CheckboxField
+                        key={asset.value}
+                        isSelected={field.value.includes(asset.value)}
+                        onSelectedChange={(value) => {
+                          if (value) {
+                            field.onChange([...field.value, asset.value]);
+                          } else {
+                            field.onChange(
+                              field.value.filter((v) => v !== asset.value)
+                            );
+                          }
+                        }}
+                        title={asset.name}
+                      />
+                    ))}
+                    <ErrorView isInvalid={!!fieldState.error}>
+                      {fieldState.error?.message}
+                    </ErrorView>
+                  </>
+                )}
               />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
-
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">
-            npm run reset-project
-          </ThemedText>{" "}
-          to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText>{" "}
-          directory. This will move the current{" "}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{" "}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-      <Button
-        variant="primary"
-        size="lg"
-        className="mt-10"
-        onPress={handleGetOnrampUrl}>
-        <Button.Label>Test Onramp</Button.Label>
-      </Button>
-    </ParallaxScrollView>
+            </Surface>
+          </Card.Body>
+          <Card.Footer className="mt-6">
+            <Button onPress={handleGetOnrampUrl}>
+              <Button.Label>Open Onramp Widget</Button.Label>
+            </Button>
+          </Card.Footer>
+        </Card>
+      </View>
+    </PageLayout>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-});

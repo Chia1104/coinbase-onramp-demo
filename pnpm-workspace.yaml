@@ -69,6 +69,7 @@ catalogs:
 
 linkWorkspacePackages: true
 
-nodeLinker: hoisted
+onlyBuiltDependencies:
+  - '@shopify/react-native-skia'
 
 strictPeerDependencies: false

@@ -113,7 +113,7 @@ importers:
         version: 0.6.1
       '@turbo/gen':
         specifier: ^2.8.1
-        version: 2.8.1(@swc/core@1.15.3)(@types/node@25.2.0)(typescript@5.9.3)
+        version: 2.8.1(@swc/core@1.15.3(@swc/helpers@0.5.18))(@types/node@25.2.0)(typescript@5.9.3)
       '@vitest/coverage-v8':
         specifier: catalog:testing-library
         version: 4.0.18(vitest@4.0.18)
@@ -146,7 +146,7 @@ importers:
         version: 2.12.7(@types/node@25.2.0)(typescript@5.9.3)
       nx:
         specifier: ^22.4.4
-        version: 22.4.4(@swc/core@1.15.3)
+        version: 22.4.4(@swc/core@1.15.3(@swc/helpers@0.5.18))
       oxfmt:
         specifier: catalog:oxc
         version: 0.27.0
@@ -176,7 +176,10 @@ importers:
         version: 15.0.3(expo-font@14.0.11(expo@54.0.33)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       '@gorhom/bottom-sheet':
         specifier: ^5.2.8
-        version: 5.2.8(@types/react@19.2.10)(react-native-gesture-handler@2.28.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-reanimated@4.1.6(@babel/core@7.29.0)(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
+        version: 5.2.8(@types/react@19.2.10)(react-native-gesture-handler@2.30.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-reanimated@4.1.6(@babel/core@7.29.0)(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
+      '@hookform/resolvers':
+        specifier: ^5.2.2
+        version: 5.2.2(react-hook-form@7.71.1(react@19.1.0))
       '@orpc/client':
         specifier: catalog:orpc
         version: 1.13.4
@@ -188,7 +191,7 @@ importers:
         version: 1.13.4(@orpc/client@1.13.4)(@tanstack/query-core@5.90.20)
       '@react-navigation/bottom-tabs':
         specifier: ^7.4.0
-        version: 7.10.1(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-screens@4.16.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
+        version: 7.12.0(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-screens@4.16.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       '@react-navigation/elements':
         specifier: ^2.6.3
         version: 2.9.5(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
@@ -227,7 +230,7 @@ importers:
         version: 8.0.11(expo@54.0.33)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       expo-router:
         specifier: ~6.0.23
-        version: 6.0.23(828eeeb506e0c9c9803c15903da3a080)
+        version: 6.0.23(b97296ed22f01b5ae474c2a0a17873d1)
       expo-splash-screen:
         specifier: ~31.0.13
         version: 31.0.13(expo@54.0.33)
@@ -245,7 +248,7 @@ importers:
         version: 15.0.10(expo@54.0.33)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))
       heroui-native:
         specifier: 1.0.0-beta.12
-        version: 1.0.0-beta.12(8c85868827abca581ecdb289a242037b)
+        version: 1.0.0-beta.12(e2c0bcca13d07c8e0423c50b40ac1c53)
       ky:
         specifier: 'catalog:'
         version: 1.14.3
@@ -255,12 +258,15 @@ importers:
       react-dom:
         specifier: catalog:react-is
         version: 19.1.0(react@19.1.0)
+      react-hook-form:
+        specifier: ^7.71.1
+        version: 7.71.1(react@19.1.0)
       react-native:
         specifier: 0.81.5
         version: 0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10)
       react-native-gesture-handler:
         specifier: ^2.28.0
-        version: 2.28.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
+        version: 2.30.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       react-native-reanimated:
         specifier: ~4.1.1
         version: 4.1.6(@babel/core@7.29.0)(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
@@ -290,7 +296,7 @@ importers:
         version: 4.1.18
       uniwind:
         specifier: ^1.2.7
-        version: 1.2.7(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)(tailwindcss@4.1.18)
+        version: 1.3.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)(tailwindcss@4.1.18)
       viem:
         specifier: ^2.45.1
         version: 2.45.1(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.3.6)
@@ -354,7 +360,7 @@ importers:
         version: 4.11.7
       hono-rate-limiter:
         specifier: ^0.5.3
-        version: 0.5.3(hono@4.11.7)(unstorage@1.17.4(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(db0@0.3.4(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(sqlite3@5.1.7))(idb-keyval@6.2.2)(ioredis@5.9.2))
+        version: 0.5.3(hono@4.11.7)
       ky:
         specifier: 'catalog:'
         version: 1.14.3
@@ -363,7 +369,7 @@ importers:
         version: 4.17.23
       nitro:
         specifier: 3.0.1-alpha.2
-        version: 3.0.1-alpha.2(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(chokidar@5.0.0)(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(idb-keyval@6.2.2)(ioredis@5.9.2)(lru-cache@11.2.5)(rollup@4.57.1)(sqlite3@5.1.7)(vite@7.3.1(@types/node@25.1.0)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
+        version: 3.0.1-alpha.2(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(chokidar@5.0.0)(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(ioredis@5.9.2)(lru-cache@11.2.5)(rollup@4.57.1)(sqlite3@5.1.7)(vite@7.3.1(@types/node@25.1.0)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       react:
         specifier: catalog:react-is
         version: 19.1.0
@@ -372,7 +378,7 @@ importers:
         version: 19.1.0(react@19.1.0)
       workflow:
         specifier: 4.0.1-beta.50
-        version: 4.0.1-beta.50(@aws-sdk/client-sts@3.980.0)(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(magicast@0.5.1)(next@16.0.10(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.9.3)
+        version: 4.0.1-beta.50(@aws-sdk/client-sts@3.980.0)(@playwright/test@1.58.1)(@swc/helpers@0.5.18)(babel-plugin-react-compiler@1.0.0)(magicast@0.5.1)(next@16.0.10(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.9.3)
       zod:
         specifier: 'catalog:'
         version: 4.3.6
@@ -1791,6 +1797,11 @@ packages:
       hono: '>=3.9.0'
       zod: ^3.25.0 || ^4.0.0
 
+  '@hookform/resolvers@5.2.2':
+    resolution: {integrity: sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==}
+    peerDependencies:
+      react-hook-form: ^7.55.0
+
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
     engines: {node: '>=18.18.0'}
@@ -3162,8 +3173,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@react-navigation/bottom-tabs@7.10.1':
-    resolution: {integrity: sha512-MirOzKEe/rRwPSE9HMrS4niIo0LyUhewlvd01TpzQ1ipuXjH2wJbzAM9gS/r62zriB6HMHz2OY6oIRduwQJtTw==}
+  '@react-navigation/bottom-tabs@7.12.0':
+    resolution: {integrity: sha512-/GtOfVWRligHG0mvX39I1FGdUWeWl0GVF2okEziQSQj0bOTrLIt7y44C3r/aCLkEpTVltCPGM3swqGTH3UfRCw==}
     peerDependencies:
       '@react-navigation/native': ^7.1.28
       react: '>= 18.2.0'
@@ -3188,8 +3199,8 @@ packages:
       '@react-native-masked-view/masked-view':
         optional: true
 
-  '@react-navigation/native-stack@7.11.0':
-    resolution: {integrity: sha512-yNx9Wr4dfpOHpqjf2sGog4eH6KCYwTAEPlUPrKbvWlQbCRm5bglwPmaTXw9hTovX9v3HIa42yo7bXpbYfq4jzg==}
+  '@react-navigation/native-stack@7.12.0':
+    resolution: {integrity: sha512-XmNJsPshjkNsahgbxNgGWQUq4s1l6HqH/Fei4QsjBNn/0mTvVrRVZwJ1XrY9YhWYvyiYkAN6/OmarWQaQJ0otQ==}
     peerDependencies:
       '@react-navigation/native': ^7.1.28
       react: '>= 18.2.0'
@@ -3965,6 +3976,9 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
+  '@standard-schema/utils@0.3.0':
+    resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
+
   '@swc/core-darwin-arm64@1.15.3':
     resolution: {integrity: sha512-AXfeQn0CvcQ4cndlIshETx6jrAM45oeUrK8YeEY6oUZU/qzz0Id0CyvlEywxkWVC81Ajpd8TQQ1fW5yx6zQWkQ==}
     engines: {node: '>=10'}
@@ -4043,6 +4057,9 @@ packages:
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
+
+  '@swc/helpers@0.5.18':
+    resolution: {integrity: sha512-TXTnIcNJQEKwThMMqBXsZ4VGAza6bvN4pa41Rkqoio6QBKMvo+5lexeTMScGCIxtzgQJzElcvIltani+adC5PQ==}
 
   '@swc/types@0.1.25':
     resolution: {integrity: sha512-iAoY/qRhNH8a/hBvm3zKj9qQ4oc2+3w1unPJa2XvTK3XjeLXtzcCingVPw/9e5mn1+0yPqxcBGp9Jf0pkfMb1g==}
@@ -5299,9 +5316,6 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  cookie-es@1.2.2:
-    resolution: {integrity: sha512-+W7VmiVINB+ywl1HGXJXmrqkOhpKrIiVZV6tQuV54ZyQC7MMuBt81Vc336GMLoHBq5hV/F9eXgt5Mnx0Rha5Fg==}
-
   cookie@1.1.1:
     resolution: {integrity: sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==}
     engines: {node: '>=18'}
@@ -5347,9 +5361,6 @@ packages:
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
-
-  crossws@0.3.5:
-    resolution: {integrity: sha512-ojKiDvcmByhwa8YYqbQI/hg7MEU0NC03+pSdEq4ZUnZR9xXpwk7E43SMNGkn+JxJGPFtNvQ48+vV2p+P1ml5PA==}
 
   crossws@0.4.4:
     resolution: {integrity: sha512-w6c4OdpRNnudVmcgr7brb/+/HmYjMQvYToO/oTrprTwxRUiom3LYWU1PMWuD006okbUWpII1Ea9/+kwpUfmyRg==}
@@ -6460,9 +6471,6 @@ packages:
     resolution: {integrity: sha512-DKKrynuQRne0PNpEbzuEdHlYOMksHSUI8Zc9Unei5gTsMNA2/vMpoMz/yKba50pejK56qj98qM0SjYxAKi13gQ==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
-  h3@1.15.5:
-    resolution: {integrity: sha512-xEyq3rSl+dhGX2Lm0+eFQIAzlDN6Fs0EcC4f7BNUmzaRX/PTzeuM+Tr2lHB8FoXggsQIeXLj8EDVgs5ywxyxmg==}
-
   h3@2.0.1-rc.11:
     resolution: {integrity: sha512-2myzjCqy32c1As9TjZW9fNZXtLqNedjFSrdFy2AjFBQQ3LzrnGoDdFDYfC0tV2e4vcyfJ2Sfo/F6NQhO2Ly/Mw==}
     engines: {node: '>=20.11.1'}
@@ -6616,9 +6624,6 @@ packages:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
 
-  idb-keyval@6.2.2:
-    resolution: {integrity: sha512-yjD9nARJ/jb1g+CvD0tlhUHOrJ9Sy0P8T9MF3YaLlHnSRpwPfpTX0XIvpmw3gAJUmEu3FiICLBDPXVwyEvrleg==}
-
   ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
 
@@ -6685,9 +6690,6 @@ packages:
   ip-address@10.1.0:
     resolution: {integrity: sha512-XXADHxXmvT9+CRxhXg56LJovE+bmWnEWB78LB83VZTprKTmaC5QfruXocxzTZ2Kl0DNwKuBdlIhjL8LeY8Sf8Q==}
     engines: {node: '>= 12'}
-
-  iron-webcrypto@1.2.1:
-    resolution: {integrity: sha512-feOM6FaSr6rEABp/eDfVseKyTMDt+KGpeB35SkVn9Tyn0CqvVsY3EwI0v5i8nMHyJnzCIQf7nsy3p41TPkJZhg==}
 
   is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
@@ -7371,6 +7373,10 @@ packages:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
     engines: {node: '>= 0.6'}
 
+  mime-db@1.54.0:
+    resolution: {integrity: sha512-aU5EJuIN2WDemCcAp2vFBfp/m4EAhWJnUNSSw0ixs7/kXbd6Pg64EmwJkNdFhB8aWt1sH2CTXrLxo/iAGV3oPQ==}
+    engines: {node: '>= 0.6'}
+
   mime-types@2.1.35:
     resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
     engines: {node: '>= 0.6'}
@@ -7663,9 +7669,6 @@ packages:
   node-machine-id@1.1.12:
     resolution: {integrity: sha512-QNABxbrPa3qEIfrE6GOJ7BYIuignnJw7iQ2YPbc3Nla1HzRJjXzZOiikfF8m7eAMfichLt3M4VgLOetqgDmgGQ==}
 
-  node-mock-http@1.0.4:
-    resolution: {integrity: sha512-8DY+kFsDkNXy1sJglUfuODx1/opAGJGyrTuFqEoN90oRc2Vk0ZbD4K2qmKXBBEhZQzdKHIVfEJpDU8Ak2NJEvQ==}
-
   node-plop@0.26.3:
     resolution: {integrity: sha512-Cov028YhBZ5aB7MdMWJEmwyBig43aGL5WT4vdoB28Oitau1zZAcHUn8Sgfk9HM33TqhtLJ9PlM/O0Mv+QpV/4Q==}
     engines: {node: '>=8.9.4'}
@@ -7732,9 +7735,6 @@ packages:
 
   obug@2.1.1:
     resolution: {integrity: sha512-uTqF9MuPraAQ+IsnPf366RG4cP9RtUi7MLO1N3KEc+wb0a6yKpeL0lmk2IB1jY5KHPAlTc6T/JRdC/YqxHNwkQ==}
-
-  ofetch@1.5.1:
-    resolution: {integrity: sha512-2W4oUZlVaqAPAil6FUg/difl6YhqhUR7x2eZY4bQCko22UXg3hptq9KLQdqFClV+Wu85UX7hNtdGTngi/1BxcA==}
 
   ofetch@2.0.0-alpha.3:
     resolution: {integrity: sha512-zpYTCs2byOuft65vI3z43Dd6iSdFbOZZLb9/d21aCpx2rGastVU9dOCv0lu4ykc1Ur1anAYjDi3SUvR0vq50JA==}
@@ -8207,9 +8207,6 @@ packages:
     resolution: {integrity: sha512-h36JMxKRqrAxVD8201FrCpyeNuUY9Y5zZwujr20fFO77tpUtGa6EZzfKw/3WaiBX95fq7+MpsuMLNdSnORAwSA==}
     engines: {node: '>=14.18.0'}
 
-  radix3@1.1.2:
-    resolution: {integrity: sha512-b484I/7b8rDEdSDKckSSBA8knMpcdsXudlE/LNL639wFoHKwLbEkQFZHWEYwDC0wa0FKUcCY+GAF73Z7wxNVFA==}
-
   range-parser@1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
     engines: {node: '>= 0.6'}
@@ -8238,6 +8235,12 @@ packages:
     peerDependencies:
       react: '>=17.0.0'
 
+  react-hook-form@7.71.1:
+    resolution: {integrity: sha512-9SUJKCGKo8HUSsCO+y0CtqkqI5nNuaDqTxyqPsZPqIwudpj4rCrAz/jZV+jn57bx5gtZKOh3neQu94DXMc+w5w==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18 || ^19
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -8247,8 +8250,8 @@ packages:
   react-is@19.2.4:
     resolution: {integrity: sha512-W+EWGn2v0ApPKgKKCy/7s7WHXkboGcsrXE+2joLyVxkbyVQfO3MUEaUQDHoSmb8TFFrSKYa9mw64WZHNHSDzYA==}
 
-  react-native-gesture-handler@2.28.0:
-    resolution: {integrity: sha512-0msfJ1vRxXKVgTgvL+1ZOoYw3/0z1R+Ked0+udoJhyplC2jbVKIJ8Z1bzWdpQRCV3QcQ87Op0zJVE5DhKK2A0A==}
+  react-native-gesture-handler@2.30.0:
+    resolution: {integrity: sha512-5YsnKHGa0X9C8lb5oCnKm0fLUPM6CRduvUUw2Bav4RIj/C3HcFh4RIUnF8wgG6JQWCL1//gRx4v+LVWgcIQdGA==}
     peerDependencies:
       react: '*'
       react-native: '*'
@@ -9179,6 +9182,10 @@ packages:
     resolution: {integrity: sha512-hU/10obOIu62MGYjdskASR3CUAiYaFTtC9Pa6vHyf//mAipSvSQg6od2CnJswq7fvzNS3zJhxoRkgNVaHurWKw==}
     engines: {node: '>=18.17'}
 
+  undici@6.23.0:
+    resolution: {integrity: sha512-VfQPToRA5FZs/qJxLIinmU59u0r7LXqoJkCzinq3ckNJp3vKEh7jTWN589YQ5+aoAC/TGRLyJLCPKcLQbM8r9g==}
+    engines: {node: '>=18.17'}
+
   undici@7.20.0:
     resolution: {integrity: sha512-MJZrkjyd7DeC+uPZh+5/YaMDxFiiEEaDgbUSVMXayofAkDWF1088CDo+2RPg7B1BuS1qf1vgNE7xqwPxE0DuSQ==}
     engines: {node: '>=20.18.1'}
@@ -9224,8 +9231,8 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
 
-  uniwind@1.2.7:
-    resolution: {integrity: sha512-4aclu1rpqh9XSSyw8/3buNud7BAw7sPadX70WYXYp+9csgTGTqt9o/QaPPfpliULUSaG8ONDY1+gC4ylz+coyg==}
+  uniwind@1.3.0:
+    resolution: {integrity: sha512-Ce4WKX0F3FBhmltiT5gG5ULJzDxnAjOt92+YxCAenuu1hcG3VAJnM8/YX/w69iXuldFTinGBIEIkdoe1Ysum7w==}
     peerDependencies:
       react: '>=19.0.0'
       react-native: '>=0.81.0'
@@ -9238,68 +9245,6 @@ packages:
   unplugin@2.3.11:
     resolution: {integrity: sha512-5uKD0nqiYVzlmCRs01Fhs2BdkEgBS3SAVP6ndrBsuK42iC2+JHyxM05Rm9G8+5mkmRtzMZGY8Ct5+mliZxU/Ww==}
     engines: {node: '>=18.12.0'}
-
-  unstorage@1.17.4:
-    resolution: {integrity: sha512-fHK0yNg38tBiJKp/Vgsq4j0JEsCmgqH58HAn707S7zGkArbZsVr/CwINoi+nh3h98BRCwKvx1K3Xg9u3VV83sw==}
-    peerDependencies:
-      '@azure/app-configuration': ^1.8.0
-      '@azure/cosmos': ^4.2.0
-      '@azure/data-tables': ^13.3.0
-      '@azure/identity': ^4.6.0
-      '@azure/keyvault-secrets': ^4.9.0
-      '@azure/storage-blob': ^12.26.0
-      '@capacitor/preferences': ^6 || ^7 || ^8
-      '@deno/kv': '>=0.9.0'
-      '@netlify/blobs': ^6.5.0 || ^7.0.0 || ^8.1.0 || ^9.0.0 || ^10.0.0
-      '@planetscale/database': ^1.19.0
-      '@upstash/redis': ^1.34.3
-      '@vercel/blob': '>=0.27.1'
-      '@vercel/functions': ^2.2.12 || ^3.0.0
-      '@vercel/kv': ^1 || ^2 || ^3
-      aws4fetch: ^1.0.20
-      db0: '>=0.2.1'
-      idb-keyval: ^6.2.1
-      ioredis: ^5.4.2
-      uploadthing: ^7.4.4
-    peerDependenciesMeta:
-      '@azure/app-configuration':
-        optional: true
-      '@azure/cosmos':
-        optional: true
-      '@azure/data-tables':
-        optional: true
-      '@azure/identity':
-        optional: true
-      '@azure/keyvault-secrets':
-        optional: true
-      '@azure/storage-blob':
-        optional: true
-      '@capacitor/preferences':
-        optional: true
-      '@deno/kv':
-        optional: true
-      '@netlify/blobs':
-        optional: true
-      '@planetscale/database':
-        optional: true
-      '@upstash/redis':
-        optional: true
-      '@vercel/blob':
-        optional: true
-      '@vercel/functions':
-        optional: true
-      '@vercel/kv':
-        optional: true
-      aws4fetch:
-        optional: true
-      db0:
-        optional: true
-      idb-keyval:
-        optional: true
-      ioredis:
-        optional: true
-      uploadthing:
-        optional: true
 
   unstorage@2.0.0-alpha.5:
     resolution: {integrity: sha512-Sj8btci21Twnd6M+N+MHhjg3fVn6lAPElPmvFTe0Y/wR0WImErUdA1PzlAaUavHylJ7uDiFwlZDQKm0elG4b7g==}
@@ -9469,6 +9414,10 @@ packages:
 
   validate-npm-package-name@5.0.0:
     resolution: {integrity: sha512-YuKoXDAhBYxY7SfOKxHBDoSyENFeW5VvIIQp2TGQuit8gpK6MnWaQelBKxso72DoxTZfZdcP3W90LqpSkgPzLQ==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+
+  validate-npm-package-name@5.0.1:
+    resolution: {integrity: sha512-OljLrQ9SQdOUqTaQxqL5dEfZWrXExyyWsozYlAWFawPVNuD83igl7uJD2RTkNMbniIYgt8l81eCJGIdQF7avLQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
   validate-npm-package-name@6.0.2:
@@ -11233,11 +11182,11 @@ snapshots:
       structured-headers: 0.4.1
       tar: 7.5.7
       terminal-link: 2.1.1
-      undici: 6.22.0
+      undici: 6.23.0
       wrap-ansi: 7.0.0
       ws: 8.19.0(bufferutil@4.1.0)(utf-8-validate@5.0.10)
     optionalDependencies:
-      expo-router: 6.0.23(828eeeb506e0c9c9803c15903da3a080)
+      expo-router: 6.0.23(b97296ed22f01b5ae474c2a0a17873d1)
       react-native: 0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
@@ -11534,13 +11483,13 @@ snapshots:
   '@gar/promisify@1.1.3':
     optional: true
 
-  '@gorhom/bottom-sheet@5.2.8(@types/react@19.2.10)(react-native-gesture-handler@2.28.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-reanimated@4.1.6(@babel/core@7.29.0)(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)':
+  '@gorhom/bottom-sheet@5.2.8(@types/react@19.2.10)(react-native-gesture-handler@2.30.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-reanimated@4.1.6(@babel/core@7.29.0)(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)':
     dependencies:
       '@gorhom/portal': 1.0.14(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       invariant: 2.2.4
       react: 19.1.0
       react-native: 0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10)
-      react-native-gesture-handler: 2.28.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
+      react-native-gesture-handler: 2.30.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       react-native-reanimated: 4.1.6(@babel/core@7.29.0)(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
     optionalDependencies:
       '@types/react': 19.2.10
@@ -11564,6 +11513,11 @@ snapshots:
     dependencies:
       hono: 4.11.7
       zod: 4.3.6
+
+  '@hookform/resolvers@5.2.2(react-hook-form@7.71.1(react@19.1.0))':
+    dependencies:
+      '@standard-schema/utils': 0.3.0
+      react-hook-form: 7.71.1(react@19.1.0)
 
   '@humanfs/core@0.19.1': {}
 
@@ -12877,7 +12831,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.10
 
-  '@react-navigation/bottom-tabs@7.10.1(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-screens@4.16.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)':
+  '@react-navigation/bottom-tabs@7.12.0(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-screens@4.16.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)':
     dependencies:
       '@react-navigation/elements': 2.9.5(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       '@react-navigation/native': 7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
@@ -12912,7 +12866,7 @@ snapshots:
       use-latest-callback: 0.2.6(react@19.1.0)
       use-sync-external-store: 1.6.0(react@19.1.0)
 
-  '@react-navigation/native-stack@7.11.0(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-screens@4.16.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)':
+  '@react-navigation/native-stack@7.12.0(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-screens@4.16.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)':
     dependencies:
       '@react-navigation/elements': 2.9.5(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       '@react-navigation/native': 7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
@@ -13023,7 +12977,7 @@ snapshots:
 
   '@scure/bip32@1.7.0':
     dependencies:
-      '@noble/curves': 1.9.7
+      '@noble/curves': 1.9.1
       '@noble/hashes': 1.8.0
       '@scure/base': 1.2.6
 
@@ -13822,6 +13776,8 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
+  '@standard-schema/utils@0.3.0': {}
+
   '@swc/core-darwin-arm64@1.15.3':
     optional: true
 
@@ -13852,7 +13808,7 @@ snapshots:
   '@swc/core-win32-x64-msvc@1.15.3':
     optional: true
 
-  '@swc/core@1.15.3':
+  '@swc/core@1.15.3(@swc/helpers@0.5.18)':
     dependencies:
       '@swc/counter': 0.1.3
       '@swc/types': 0.1.25
@@ -13867,10 +13823,15 @@ snapshots:
       '@swc/core-win32-arm64-msvc': 1.15.3
       '@swc/core-win32-ia32-msvc': 1.15.3
       '@swc/core-win32-x64-msvc': 1.15.3
+      '@swc/helpers': 0.5.18
 
   '@swc/counter@0.1.3': {}
 
   '@swc/helpers@0.5.15':
+    dependencies:
+      tslib: 2.8.1
+
+  '@swc/helpers@0.5.18':
     dependencies:
       tslib: 2.8.1
 
@@ -13966,7 +13927,7 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@turbo/gen@2.8.1(@swc/core@1.15.3)(@types/node@25.2.0)(typescript@5.9.3)':
+  '@turbo/gen@2.8.1(@swc/core@1.15.3(@swc/helpers@0.5.18))(@types/node@25.2.0)(typescript@5.9.3)':
     dependencies:
       '@turbo/workspaces': 2.8.1
       commander: 10.0.0
@@ -13976,7 +13937,7 @@ snapshots:
       node-plop: 0.26.3
       picocolors: 1.0.1
       proxy-agent: 6.5.0
-      ts-node: 10.9.2(@swc/core@1.15.3)(@types/node@25.2.0)(typescript@5.9.3)
+      ts-node: 10.9.2(@swc/core@1.15.3(@swc/helpers@0.5.18))(@types/node@25.2.0)(typescript@5.9.3)
       update-check: 1.5.4
       validate-npm-package-name: 5.0.0
     transitivePeerDependencies:
@@ -14142,7 +14103,7 @@ snapshots:
 
   '@types/ws@7.4.7':
     dependencies:
-      '@types/node': 25.2.0
+      '@types/node': 12.20.55
 
   '@types/ws@8.18.1':
     dependencies:
@@ -14321,12 +14282,12 @@ snapshots:
       - supports-color
       - zod
 
-  '@workflow/astro@4.0.0-beta.24(@aws-sdk/client-sts@3.980.0)':
+  '@workflow/astro@4.0.0-beta.24(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)':
     dependencies:
-      '@swc/core': 1.15.3
-      '@workflow/builders': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)
-      '@workflow/rollup': 4.0.0-beta.8
-      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3)
+      '@swc/core': 1.15.3(@swc/helpers@0.5.18)
+      '@workflow/builders': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)
+      '@workflow/rollup': 4.0.0-beta.8(@swc/helpers@0.5.18)
+      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3(@swc/helpers@0.5.18))
       '@workflow/vite': 4.0.0-beta.2
       exsolve: 1.0.8
       pathe: 2.0.3
@@ -14336,12 +14297,12 @@ snapshots:
       - '@swc/helpers'
       - supports-color
 
-  '@workflow/builders@4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)':
+  '@workflow/builders@4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)':
     dependencies:
-      '@swc/core': 1.15.3
+      '@swc/core': 1.15.3(@swc/helpers@0.5.18)
       '@workflow/core': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)
       '@workflow/errors': 4.0.1-beta.13
-      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3)
+      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3(@swc/helpers@0.5.18))
       builtin-modules: 5.0.0
       chalk: 5.6.2
       enhanced-resolve: 5.18.2
@@ -14355,15 +14316,15 @@ snapshots:
       - '@swc/helpers'
       - supports-color
 
-  '@workflow/cli@4.0.1-beta.50(@aws-sdk/client-sts@3.980.0)(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.9.3)':
+  '@workflow/cli@4.0.1-beta.50(@aws-sdk/client-sts@3.980.0)(@playwright/test@1.58.1)(@swc/helpers@0.5.18)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.9.3)':
     dependencies:
       '@oclif/core': 4.0.0(typescript@5.9.3)
       '@oclif/plugin-help': 6.2.31(typescript@5.9.3)
-      '@swc/core': 1.15.3
-      '@workflow/builders': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)
+      '@swc/core': 1.15.3(@swc/helpers@0.5.18)
+      '@workflow/builders': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)
       '@workflow/core': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)
       '@workflow/errors': 4.0.1-beta.13
-      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3)
+      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3(@swc/helpers@0.5.18))
       '@workflow/utils': 4.0.1-beta.10
       '@workflow/web': 4.0.1-beta.30(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@workflow/world': 4.0.1-beta.13(zod@4.1.11)
@@ -14434,12 +14395,12 @@ snapshots:
       '@workflow/utils': 4.0.1-beta.4
       ms: 2.1.3
 
-  '@workflow/next@4.0.1-beta.46(@aws-sdk/client-sts@3.980.0)(next@16.0.10(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
+  '@workflow/next@4.0.1-beta.46(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)(next@16.0.10(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
     dependencies:
-      '@swc/core': 1.15.3
-      '@workflow/builders': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)
+      '@swc/core': 1.15.3(@swc/helpers@0.5.18)
+      '@workflow/builders': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)
       '@workflow/core': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)
-      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3)
+      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3(@swc/helpers@0.5.18))
       semver: 7.7.3
       watchpack: 2.4.4
     optionalDependencies:
@@ -14450,13 +14411,13 @@ snapshots:
       - '@swc/helpers'
       - supports-color
 
-  '@workflow/nitro@4.0.1-beta.45(@aws-sdk/client-sts@3.980.0)':
+  '@workflow/nitro@4.0.1-beta.45(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)':
     dependencies:
-      '@swc/core': 1.15.3
-      '@workflow/builders': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)
+      '@swc/core': 1.15.3(@swc/helpers@0.5.18)
+      '@workflow/builders': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)
       '@workflow/core': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)
-      '@workflow/rollup': 4.0.0-beta.8
-      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3)
+      '@workflow/rollup': 4.0.0-beta.8(@swc/helpers@0.5.18)
+      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3(@swc/helpers@0.5.18))
       '@workflow/vite': 4.0.0-beta.2
       exsolve: 1.0.7
       pathe: 2.0.3
@@ -14466,10 +14427,10 @@ snapshots:
       - '@swc/helpers'
       - supports-color
 
-  '@workflow/nuxt@4.0.1-beta.34(@aws-sdk/client-sts@3.980.0)(magicast@0.5.1)':
+  '@workflow/nuxt@4.0.1-beta.34(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)(magicast@0.5.1)':
     dependencies:
       '@nuxt/kit': 4.2.0(magicast@0.5.1)
-      '@workflow/nitro': 4.0.1-beta.45(@aws-sdk/client-sts@3.980.0)
+      '@workflow/nitro': 4.0.1-beta.45(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)
     transitivePeerDependencies:
       - '@aws-sdk/client-sts'
       - '@opentelemetry/api'
@@ -14477,22 +14438,22 @@ snapshots:
       - magicast
       - supports-color
 
-  '@workflow/rollup@4.0.0-beta.8':
+  '@workflow/rollup@4.0.0-beta.8(@swc/helpers@0.5.18)':
     dependencies:
-      '@swc/core': 1.15.3
-      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3)
+      '@swc/core': 1.15.3(@swc/helpers@0.5.18)
+      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3(@swc/helpers@0.5.18))
       exsolve: 1.0.7
     transitivePeerDependencies:
       - '@swc/helpers'
 
   '@workflow/serde@4.0.1-beta.1': {}
 
-  '@workflow/sveltekit@4.0.0-beta.39(@aws-sdk/client-sts@3.980.0)':
+  '@workflow/sveltekit@4.0.0-beta.39(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)':
     dependencies:
-      '@swc/core': 1.15.3
-      '@workflow/builders': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)
-      '@workflow/rollup': 4.0.0-beta.8
-      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3)
+      '@swc/core': 1.15.3(@swc/helpers@0.5.18)
+      '@workflow/builders': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)
+      '@workflow/rollup': 4.0.0-beta.8(@swc/helpers@0.5.18)
+      '@workflow/swc-plugin': 4.0.1-beta.14(@swc/core@1.15.3(@swc/helpers@0.5.18))
       '@workflow/vite': 4.0.0-beta.2
       exsolve: 1.0.8
       fs-extra: 11.3.3
@@ -14503,9 +14464,9 @@ snapshots:
       - '@swc/helpers'
       - supports-color
 
-  '@workflow/swc-plugin@4.0.1-beta.14(@swc/core@1.15.3)':
+  '@workflow/swc-plugin@4.0.1-beta.14(@swc/core@1.15.3(@swc/helpers@0.5.18))':
     dependencies:
-      '@swc/core': 1.15.3
+      '@swc/core': 1.15.3(@swc/helpers@0.5.18)
 
   '@workflow/typescript-plugin@4.0.1-beta.4(typescript@5.9.3)':
     dependencies:
@@ -15351,7 +15312,7 @@ snapshots:
 
   compressible@2.0.18:
     dependencies:
-      mime-db: 1.52.0
+      mime-db: 1.54.0
 
   compression@1.8.1:
     dependencies:
@@ -15396,9 +15357,6 @@ snapshots:
       upper-case: 1.1.3
 
   convert-source-map@2.0.0: {}
-
-  cookie-es@1.2.2:
-    optional: true
 
   cookie@1.1.1: {}
 
@@ -15447,11 +15405,6 @@ snapshots:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
-
-  crossws@0.3.5:
-    dependencies:
-      uncrypto: 0.1.3
-    optional: true
 
   crossws@0.4.4(srvx@0.10.1):
     optionalDependencies:
@@ -16011,15 +15964,15 @@ snapshots:
       react: 19.1.0
       react-native: 0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10)
 
-  expo-router@6.0.23(828eeeb506e0c9c9803c15903da3a080):
+  expo-router@6.0.23(b97296ed22f01b5ae474c2a0a17873d1):
     dependencies:
       '@expo/metro-runtime': 6.1.2(expo@54.0.33)(react-dom@19.1.0(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       '@expo/schema-utils': 0.1.8
       '@radix-ui/react-slot': 1.2.0(@types/react@19.2.10)(react@19.1.0)
       '@radix-ui/react-tabs': 1.1.13(@types/react@19.2.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-navigation/bottom-tabs': 7.10.1(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-screens@4.16.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
+      '@react-navigation/bottom-tabs': 7.12.0(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-screens@4.16.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       '@react-navigation/native': 7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
-      '@react-navigation/native-stack': 7.11.0(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-screens@4.16.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
+      '@react-navigation/native-stack': 7.12.0(@react-navigation/native@7.1.28(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-safe-area-context@5.6.2(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-screens@4.16.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       client-only: 0.0.1
       debug: 4.4.3(supports-color@8.1.1)
       escape-string-regexp: 4.0.0
@@ -16045,7 +15998,7 @@ snapshots:
       vaul: 1.1.2(@types/react@19.2.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     optionalDependencies:
       react-dom: 19.1.0(react@19.1.0)
-      react-native-gesture-handler: 2.28.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
+      react-native-gesture-handler: 2.30.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       react-native-reanimated: 4.1.6(@babel/core@7.29.0)(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       react-native-web: 0.21.2(encoding@0.1.13)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
@@ -16458,19 +16411,6 @@ snapshots:
 
   graphql@16.12.0: {}
 
-  h3@1.15.5:
-    dependencies:
-      cookie-es: 1.2.2
-      crossws: 0.3.5
-      defu: 6.1.4
-      destr: 2.0.5
-      iron-webcrypto: 1.2.1
-      node-mock-http: 1.0.4
-      radix3: 1.1.2
-      ufo: 1.6.3
-      uncrypto: 0.1.3
-    optional: true
-
   h3@2.0.1-rc.11(crossws@0.4.4(srvx@0.10.1)):
     dependencies:
       rou3: 0.7.12
@@ -16537,9 +16477,9 @@ snapshots:
     dependencies:
       hermes-estree: 0.32.0
 
-  heroui-native@1.0.0-beta.12(8c85868827abca581ecdb289a242037b):
+  heroui-native@1.0.0-beta.12(e2c0bcca13d07c8e0423c50b40ac1c53):
     dependencies:
-      '@gorhom/bottom-sheet': 5.2.8(@types/react@19.2.10)(react-native-gesture-handler@2.28.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-reanimated@4.1.6(@babel/core@7.29.0)(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
+      '@gorhom/bottom-sheet': 5.2.8(@types/react@19.2.10)(react-native-gesture-handler@2.30.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native-reanimated@4.1.6(@babel/core@7.29.0)(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
       react: 19.1.0
       react-native: 0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10)
       react-native-reanimated: 4.1.6(@babel/core@7.29.0)(react-native-worklets@0.5.1(@babel/core@7.29.0)(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)
@@ -16554,11 +16494,9 @@ snapshots:
     dependencies:
       react-is: 16.13.1
 
-  hono-rate-limiter@0.5.3(hono@4.11.7)(unstorage@1.17.4(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(db0@0.3.4(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(sqlite3@5.1.7))(idb-keyval@6.2.2)(ioredis@5.9.2)):
+  hono-rate-limiter@0.5.3(hono@4.11.7):
     dependencies:
       hono: 4.11.7
-    optionalDependencies:
-      unstorage: 1.17.4(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(db0@0.3.4(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(sqlite3@5.1.7))(idb-keyval@6.2.2)(ioredis@5.9.2)
 
   hono@4.11.7: {}
 
@@ -16631,9 +16569,6 @@ snapshots:
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
-    optional: true
-
-  idb-keyval@6.2.2:
     optional: true
 
   ieee754@1.2.1: {}
@@ -16738,9 +16673,6 @@ snapshots:
       - supports-color
 
   ip-address@10.1.0: {}
-
-  iron-webcrypto@1.2.1:
-    optional: true
 
   is-arrayish@0.2.1: {}
 
@@ -17496,6 +17428,8 @@ snapshots:
 
   mime-db@1.52.0: {}
 
+  mime-db@1.54.0: {}
+
   mime-types@2.1.35:
     dependencies:
       mime-db: 1.52.0
@@ -17733,7 +17667,7 @@ snapshots:
 
   nf3@0.3.7: {}
 
-  nitro@3.0.1-alpha.2(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(chokidar@5.0.0)(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(idb-keyval@6.2.2)(ioredis@5.9.2)(lru-cache@11.2.5)(rollup@4.57.1)(sqlite3@5.1.7)(vite@7.3.1(@types/node@25.1.0)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)):
+  nitro@3.0.1-alpha.2(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(chokidar@5.0.0)(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(ioredis@5.9.2)(lru-cache@11.2.5)(rollup@4.57.1)(sqlite3@5.1.7)(vite@7.3.1(@types/node@25.1.0)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
       consola: 3.4.2
       crossws: 0.4.4(srvx@0.10.1)
@@ -17748,7 +17682,7 @@ snapshots:
       srvx: 0.10.1
       undici: 7.20.0
       unenv: 2.0.0-rc.24
-      unstorage: 2.0.0-alpha.5(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(chokidar@5.0.0)(db0@0.3.4(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(sqlite3@5.1.7))(idb-keyval@6.2.2)(ioredis@5.9.2)(lru-cache@11.2.5)(ofetch@2.0.0-alpha.3)
+      unstorage: 2.0.0-alpha.5(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(chokidar@5.0.0)(db0@0.3.4(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(sqlite3@5.1.7))(ioredis@5.9.2)(lru-cache@11.2.5)(ofetch@2.0.0-alpha.3)
     optionalDependencies:
       rollup: 4.57.1
       vite: 7.3.1(@types/node@25.1.0)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
@@ -17837,9 +17771,6 @@ snapshots:
 
   node-machine-id@1.1.12: {}
 
-  node-mock-http@1.0.4:
-    optional: true
-
   node-plop@0.26.3:
     dependencies:
       '@babel/runtime-corejs3': 7.29.0
@@ -17868,7 +17799,7 @@ snapshots:
       hosted-git-info: 7.0.2
       proc-log: 4.2.0
       semver: 7.7.3
-      validate-npm-package-name: 5.0.0
+      validate-npm-package-name: 5.0.1
 
   npm-run-path@4.0.1:
     dependencies:
@@ -17893,7 +17824,7 @@ snapshots:
 
   nullthrows@1.1.1: {}
 
-  nx@22.4.4(@swc/core@1.15.3):
+  nx@22.4.4(@swc/core@1.15.3(@swc/helpers@0.5.18)):
     dependencies:
       '@napi-rs/wasm-runtime': 0.2.4
       '@yarnpkg/lockfile': 1.1.0
@@ -17941,7 +17872,7 @@ snapshots:
       '@nx/nx-linux-x64-musl': 22.4.4
       '@nx/nx-win32-arm64-msvc': 22.4.4
       '@nx/nx-win32-x64-msvc': 22.4.4
-      '@swc/core': 1.15.3
+      '@swc/core': 1.15.3(@swc/helpers@0.5.18)
     transitivePeerDependencies:
       - debug
 
@@ -17958,13 +17889,6 @@ snapshots:
   object-assign@4.1.1: {}
 
   obug@2.1.1: {}
-
-  ofetch@1.5.1:
-    dependencies:
-      destr: 2.0.5
-      node-fetch-native: 1.6.7
-      ufo: 1.6.3
-    optional: true
 
   ofetch@2.0.0-alpha.3: {}
 
@@ -18564,9 +18488,6 @@ snapshots:
 
   radash@12.1.1: {}
 
-  radix3@1.1.2:
-    optional: true
-
   range-parser@1.2.1: {}
 
   rc9@2.1.2:
@@ -18600,13 +18521,17 @@ snapshots:
     dependencies:
       react: 19.1.0
 
+  react-hook-form@7.71.1(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+
   react-is@16.13.1: {}
 
   react-is@18.3.1: {}
 
   react-is@19.2.4: {}
 
-  react-native-gesture-handler@2.28.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0):
+  react-native-gesture-handler@2.30.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0):
     dependencies:
       '@egjs/hammerjs': 2.0.17
       hoist-non-react-statics: 3.3.2
@@ -18916,7 +18841,7 @@ snapshots:
 
   rpc-websockets@9.3.3:
     dependencies:
-      '@swc/helpers': 0.5.15
+      '@swc/helpers': 0.5.18
       '@types/uuid': 8.3.4
       '@types/ws': 8.18.1
       buffer: 6.0.3
@@ -19462,7 +19387,7 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-node@10.9.2(@swc/core@1.15.3)(@types/node@25.2.0)(typescript@5.9.3):
+  ts-node@10.9.2(@swc/core@1.15.3(@swc/helpers@0.5.18))(@types/node@25.2.0)(typescript@5.9.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.12
@@ -19480,7 +19405,7 @@ snapshots:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     optionalDependencies:
-      '@swc/core': 1.15.3
+      '@swc/core': 1.15.3(@swc/helpers@0.5.18)
 
   tsconfig-paths@4.2.0:
     dependencies:
@@ -19578,6 +19503,8 @@ snapshots:
 
   undici@6.22.0: {}
 
+  undici@6.23.0: {}
+
   undici@7.20.0: {}
 
   unenv@2.0.0-rc.24:
@@ -19615,7 +19542,7 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  uniwind@1.2.7(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)(tailwindcss@4.1.18):
+  uniwind@1.3.0(react-native@0.81.5(@babel/core@7.29.0)(@types/react@19.2.10)(bufferutil@4.1.0)(react@19.1.0)(utf-8-validate@5.0.10))(react@19.1.0)(tailwindcss@4.1.18):
     dependencies:
       '@tailwindcss/node': 4.1.17
       '@tailwindcss/oxide': 4.1.17
@@ -19634,31 +19561,12 @@ snapshots:
       picomatch: 4.0.3
       webpack-virtual-modules: 0.6.2
 
-  unstorage@1.17.4(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(db0@0.3.4(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(sqlite3@5.1.7))(idb-keyval@6.2.2)(ioredis@5.9.2):
-    dependencies:
-      anymatch: 3.1.3
-      chokidar: 5.0.0
-      destr: 2.0.5
-      h3: 1.15.5
-      lru-cache: 11.2.5
-      node-fetch-native: 1.6.7
-      ofetch: 1.5.1
-      ufo: 1.6.3
-    optionalDependencies:
-      '@upstash/redis': 1.36.1
-      '@vercel/functions': 3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0))
-      db0: 0.3.4(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(sqlite3@5.1.7)
-      idb-keyval: 6.2.2
-      ioredis: 5.9.2
-    optional: true
-
-  unstorage@2.0.0-alpha.5(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(chokidar@5.0.0)(db0@0.3.4(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(sqlite3@5.1.7))(idb-keyval@6.2.2)(ioredis@5.9.2)(lru-cache@11.2.5)(ofetch@2.0.0-alpha.3):
+  unstorage@2.0.0-alpha.5(@upstash/redis@1.36.1)(@vercel/functions@3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0)))(chokidar@5.0.0)(db0@0.3.4(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(sqlite3@5.1.7))(ioredis@5.9.2)(lru-cache@11.2.5)(ofetch@2.0.0-alpha.3):
     optionalDependencies:
       '@upstash/redis': 1.36.1
       '@vercel/functions': 3.4.0(@aws-sdk/credential-provider-web-identity@3.609.0(@aws-sdk/client-sts@3.980.0))
       chokidar: 5.0.0
       db0: 0.3.4(drizzle-orm@0.45.1(@upstash/redis@1.36.1)(bun-types@1.3.8)(kysely@0.28.11)(pg@8.18.0)(postgres@3.4.7)(sqlite3@5.1.7))(sqlite3@5.1.7)
-      idb-keyval: 6.2.2
       ioredis: 5.9.2
       lru-cache: 11.2.5
       ofetch: 2.0.0-alpha.3
@@ -19746,6 +19654,8 @@ snapshots:
   validate-npm-package-name@5.0.0:
     dependencies:
       builtins: 5.1.0
+
+  validate-npm-package-name@5.0.1: {}
 
   validate-npm-package-name@6.0.2: {}
 
@@ -20000,17 +19910,17 @@ snapshots:
 
   wordwrap@1.0.0: {}
 
-  workflow@4.0.1-beta.50(@aws-sdk/client-sts@3.980.0)(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(magicast@0.5.1)(next@16.0.10(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.9.3):
+  workflow@4.0.1-beta.50(@aws-sdk/client-sts@3.980.0)(@playwright/test@1.58.1)(@swc/helpers@0.5.18)(babel-plugin-react-compiler@1.0.0)(magicast@0.5.1)(next@16.0.10(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.9.3):
     dependencies:
-      '@workflow/astro': 4.0.0-beta.24(@aws-sdk/client-sts@3.980.0)
-      '@workflow/cli': 4.0.1-beta.50(@aws-sdk/client-sts@3.980.0)(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.9.3)
+      '@workflow/astro': 4.0.0-beta.24(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)
+      '@workflow/cli': 4.0.1-beta.50(@aws-sdk/client-sts@3.980.0)(@playwright/test@1.58.1)(@swc/helpers@0.5.18)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.9.3)
       '@workflow/core': 4.0.1-beta.41(@aws-sdk/client-sts@3.980.0)
       '@workflow/errors': 4.0.1-beta.13
-      '@workflow/next': 4.0.1-beta.46(@aws-sdk/client-sts@3.980.0)(next@16.0.10(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
-      '@workflow/nitro': 4.0.1-beta.45(@aws-sdk/client-sts@3.980.0)
-      '@workflow/nuxt': 4.0.1-beta.34(@aws-sdk/client-sts@3.980.0)(magicast@0.5.1)
-      '@workflow/rollup': 4.0.0-beta.8
-      '@workflow/sveltekit': 4.0.0-beta.39(@aws-sdk/client-sts@3.980.0)
+      '@workflow/next': 4.0.1-beta.46(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)(next@16.0.10(@playwright/test@1.58.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
+      '@workflow/nitro': 4.0.1-beta.45(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)
+      '@workflow/nuxt': 4.0.1-beta.34(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)(magicast@0.5.1)
+      '@workflow/rollup': 4.0.0-beta.8(@swc/helpers@0.5.18)
+      '@workflow/sveltekit': 4.0.0-beta.39(@aws-sdk/client-sts@3.980.0)(@swc/helpers@0.5.18)
       '@workflow/typescript-plugin': 4.0.1-beta.4(typescript@5.9.3)
       ms: 2.1.3
     transitivePeerDependencies:

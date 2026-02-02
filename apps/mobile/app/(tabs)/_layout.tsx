@@ -1,40 +1,40 @@
-import React from "react";
+import { Platform, View } from "react-native";
+import { useColorScheme } from "react-native";
 
-import { Tabs } from "expo-router";
+import { Stack } from "expo-router";
+import { useThemeColor } from "heroui-native";
 
-import { HapticTab } from "@/components/haptic-tab";
-import { IconSymbol } from "@/components/ui/icon-symbol";
-import { Colors } from "@/constants/theme";
-import { useColorScheme } from "@/hooks/use-color-scheme";
+import { ThemeToggle } from "@/components/theme-toggle";
 
-export default function TabLayout() {
+export default function Layout() {
+  const themeColorForeground = useThemeColor("foreground");
+  const themeColorBackground = useThemeColor("background");
   const colorScheme = useColorScheme();
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Home",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: "Explore",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="paperplane.fill" color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    <View className="bg-background flex-1">
+      <Stack
+        screenOptions={{
+          headerTitleAlign: "center",
+          headerTransparent: true,
+          headerBlurEffect: colorScheme === "dark" ? "dark" : "light",
+          headerTintColor: themeColorForeground,
+          headerStyle: {
+            backgroundColor: Platform.select({
+              ios: undefined,
+              android: themeColorBackground,
+            }),
+          },
+          headerRight: () => <ThemeToggle />,
+          headerBackButtonDisplayMode: "generic",
+          gestureEnabled: true,
+          gestureDirection: "horizontal",
+          contentStyle: {
+            backgroundColor: themeColorBackground,
+          },
+        }}>
+        <Stack.Screen name="index" />
+      </Stack>
+    </View>
   );
 }
