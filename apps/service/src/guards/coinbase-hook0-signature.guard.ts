@@ -178,6 +178,10 @@ async function verifyWebhookSignature(
 
 export const coinbaseHook0SignatureGuard = createMiddleware<HonoContext>(
   async (c, next) => {
+    if (c.req.method === "HEAD") {
+      return c.json({ received: true }, 200);
+    }
+
     const signatureHeader = c.req.header(HEADER_NAME);
     if (!signatureHeader) {
       return c.json({ error: "Missing signature header" }, 400);
