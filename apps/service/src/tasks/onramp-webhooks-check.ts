@@ -111,6 +111,8 @@ export default defineTask({
       console.log("Subscription re-registered:", subscriptionId);
     }
 
+    console.log("Subscription is enabled:", subscriptions.isEnabled);
+
     return { result: "Success" };
   },
 });
