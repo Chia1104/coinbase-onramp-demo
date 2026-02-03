@@ -3,7 +3,7 @@
 ## Demo
 
 <div align="center">
-  <video src=".github/public/coinbase-onramp-demo.mov" controls width="70%" style="border-radius: 50px; max-width: 640px;"></video>
+  <video src="https://github.com/user-attachments/assets/7277d460-fcd2-4457-8467-6e78a56e0de5" controls width="70%" style="border-radius: 50px; max-width: 640px;"></video>
 </div>
 
 ## 文件參考
