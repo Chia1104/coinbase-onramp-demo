@@ -80,3 +80,17 @@ export const OnrampBuyConfigResponse = z.object({
 export type OnrampBuyConfigResponse = z.infer<typeof OnrampBuyConfigResponse>;
 
 export const OnrampBuyConfigContract = oc.output(OnrampBuyConfigResponse);
+
+export const PrepareRequest = z.object({
+  ...SessionTokenRequest.shape,
+  redirect_url: z.string(),
+  use_sandbox: z.boolean().optional(),
+});
+
+export type PrepareRequest = z.infer<typeof PrepareRequest>;
+
+export const PrepareContract = oc.input(PrepareRequest).output(
+  z.object({
+    url: z.string(),
+  })
+);

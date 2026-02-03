@@ -3,12 +3,18 @@ import { os } from "@orpc/server";
 
 import { routerContract } from "./router.contract";
 
-export const baseOS = os.$context<{
+export interface BaseContext {
   headers: Headers;
   clientIP: string;
-}>();
+  hooks?: {
+    onPrepareOnrampUrl?: (options: {
+      redirectUrl: string;
+      useSandbox: boolean;
+      partnerUserRef: string;
+    }) => Promise<string>;
+  };
+}
 
-export const contractOS = implement(routerContract).$context<{
-  headers: Headers;
-  clientIP: string;
-}>();
+export const baseOS = os.$context<BaseContext>();
+
+export const contractOS = implement(routerContract).$context<BaseContext>();

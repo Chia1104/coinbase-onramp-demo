@@ -7,7 +7,7 @@ export default defineConfig({
   typescript: {
     tsconfigPath: "./tsconfig.build.json",
   },
-  preset: "node-server",
+  preset: "bun",
   routes: {
     "/**": "./src/server.ts",
   },

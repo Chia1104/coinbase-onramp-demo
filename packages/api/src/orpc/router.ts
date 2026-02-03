@@ -7,7 +7,11 @@ export const router = contractOS.router({
     server: healthRoutes.healthRoute,
   },
   onramp: {
+    /**
+     * @deprecated Use `prepare` instead.
+     */
     token: onrampRoutes.onrampTokenRoute,
     buyConfig: onrampRoutes.onrampBuyConfigRoute,
+    prepare: onrampRoutes.onrampPrepareRoute,
   },
 });

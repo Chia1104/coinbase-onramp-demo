@@ -6,7 +6,7 @@ import { View } from "react-native";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LegendList } from "@legendapp/list";
 import type { LegendListRef } from "@legendapp/list";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { useLocales } from "expo-localization";
 import {
   Button,
@@ -25,7 +25,6 @@ import {
 import * as z from "zod";
 
 import { PageLayout } from "@/components/page-layout";
-import { useGetOnrampUrl } from "@/lib/coinbase/hooks/use-get-onramp-url";
 import { orpc } from "@/lib/orpc/client";
 
 const formSchema = z.object({
@@ -134,7 +133,9 @@ const OnrampConfigSelect = () => {
 
 export default function HomeScreen() {
   const [isPending, startTransition] = useTransition();
-  const { mutateAsync: getOnrampUrl } = useGetOnrampUrl();
+  const { mutateAsync: getOnrampUrl } = useMutation(
+    orpc.onramp.prepare.mutationOptions()
+  );
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -147,7 +148,7 @@ export default function HomeScreen() {
 
   const handleGetOnrampUrl = form.handleSubmit((data) => {
     startTransition(async () => {
-      const url = await getOnrampUrl({
+      const response = await getOnrampUrl({
         addresses: [
           {
             address: data.address,
@@ -155,9 +156,11 @@ export default function HomeScreen() {
           },
         ],
         assets: data.assets,
+        redirect_url: "coinbase-onramp-demo://onramp-callback",
+        use_sandbox: __DEV__,
       });
-      console.log("url", url);
-      await Linking.openURL(url);
+      console.log("url", response.url);
+      await Linking.openURL(response.url);
     });
   });
 

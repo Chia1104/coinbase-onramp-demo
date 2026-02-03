@@ -16,6 +16,10 @@
     "./orpc/env": {
       "types": "./src/orpc/env.ts",
       "default": "./src/orpc/env.ts"
+    },
+    "./orpc/onramp/services": {
+      "types": "./src/orpc/services/onramp.service.ts",
+      "default": "./src/orpc/services/onramp.service.ts"
     }
   },
   "scripts": {
