@@ -31,16 +31,15 @@ sequenceDiagram
     participant Backend as 🖥️ 後端
     participant Coinbase as 🪙 Coinbase API
 
-    User->>Mobile: 點擊 "Test Onramp" 按鈕
-    Mobile->>Mobile: useGetOnrampUrl hook
-    Mobile->>Mobile: getOnrampBuyUrl()
-    Mobile->>Backend: 請求 Session Token<br/>(addresses, assets)
-    Backend->>Backend: 生成 JWT Token<br/>(使用 CDP_KEY_ID & CDP_KEY_SECRET)
-    Backend->>Coinbase: POST /onramp/v1/token<br/>(帶 JWT Authorization)
-    Coinbase-->>Backend: 返回 Session Token<br/>{ token, channel_id }
-    Backend-->>Mobile: 返回 Session Token
-    Mobile->>Mobile: 構建 Coinbase Onramp URL<br/>https://pay.coinbase.com/buy/select-asset?<br/>sessionToken=xxx&redirectUrl=xxx
-    Mobile->>User: 打開瀏覽器<br/>(Linking.openURL)
+    User->>Mobile: 點擊「Open Onramp Widget」
+    Mobile->>Mobile: 表單驗證<br/>(address, network, assets)
+    Mobile->>Backend: 請求 onramp.prepare<br/>(addresses, assets, redirect_url, use_sandbox)
+    Backend->>Backend: 生成 JWT<br/>(CDP_KEY_ID & CDP_KEY_SECRET)
+    Backend->>Coinbase: POST /onramp/v1/token<br/>(Authorization: Bearer JWT)
+    Coinbase-->>Backend: { token, channel_id }
+    Backend->>Backend: 組裝 Onramp URL<br/>(sessionToken, redirectUrl, partnerUserRef)
+    Backend-->>Mobile: { url }
+    Mobile->>User: Linking.openURL(url)
     User->>Coinbase: 在 Coinbase Onramp 頁面<br/>完成購買流程
 ```
 
@@ -50,73 +49,59 @@ sequenceDiagram
 graph TB
     subgraph "前端層"
         A[Mobile App<br/>React Native]
+        W[Web www<br/>callback / 深連結入口]
     end
 
-    subgraph "後端層"
-        B[後端<br/>生成 JWT & Session Token]
+    subgraph "後端層 apps/service"
+        R[後端 /api/v1/rpc<br/>onramp.prepare · buyConfig]
+        H[REST /api/v1/onramp/webhooks]
     end
 
     subgraph "外部服務"
-        C[Coinbase API<br/>Onramp Service]
+        C[Coinbase API<br/>Onramp · CDP]
     end
 
-    A -->|請求 Session Token| B
-    B -->|POST /onramp/v1/token<br/>帶 JWT Authorization| C
-    C -->|返回 Session Token| B
-    B -->|返回 Session Token| A
-    A -->|構建 URL 並打開瀏覽器| D[Coinbase Onramp<br/>購買頁面]
+    A -->|onramp.prepare 取得 URL| R
+    R -->|POST /onramp/v1/token| C
+    C -->|Session Token| R
+    R -->|回傳 url| A
+    A -->|打開 URL| D[Coinbase Onramp<br/>購買頁面]
+    C -->|Webhook 事件| H
+    W -.->|深連結| A
 
     style A fill:#e1f5ff
-    style B fill:#fff4e1
+    style R fill:#fff4e1
+    style H fill:#ffe1e1
     style C fill:#fce4ec
     style D fill:#f3e5f5
 ```
 
-### 流程說明
+### 需要實作的 API
 
-#### 1. 用戶觸發流程
+| API                  | 路徑／用途                     | 說明                                                                                                                                                           |
+| -------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **onramp.prepare**   | 後端 RPC                       | 入參：addresses、assets、redirect_url、use_sandbox。向 Coinbase 取得 session token 後組裝 Onramp URL，回傳 `{ url }`。redirect_url 須在 CDP Domain Allowlist。 |
+| **onramp.buyConfig** | 後端 RPC                       | 取得國家與支付方式設定，供前端選單使用（可選）。                                                                                                               |
+| **Webhook**          | `POST /api/v1/onramp/webhooks` | 接收 Coinbase 交易狀態事件，驗證簽名後異步處理（見下方 Webhook 章節）。                                                                                        |
 
-用戶在 Mobile App 中點擊「Test Onramp」按鈕，觸發購買流程。
+### 前端流程
 
-#### 2. Mobile App 處理
+1. **觸發**：用戶填寫錢包地址、網路、資產後，點擊開啟 Onramp。
+2. **取得 URL**：前端呼叫後端 **onramp.prepare**，傳入 addresses、assets、redirect_url、use_sandbox；後端回傳 Onramp 完整 URL。
+3. **導向**：前端以回傳的 URL 開啟瀏覽器／WebView，用戶在 Coinbase Onramp 頁面完成購買。
+4. **返回**：完成後依 redirect_url 回到 App（如 onramp-callback）；交易狀態由 Webhook 推送到後端。
 
-- Mobile App 使用 `useGetOnrampUrl` hook 來處理請求
-- 呼叫 `getOnrampBuyUrl()` 函數，準備要發送到後端的參數
-- 參數包含：
-  - `addresses`: 目標錢包地址和區塊鏈資訊
-  - `assets`: 要購買的加密貨幣（例如：USDC）
+### partnerUserRef 整合
 
-#### 3. 後端處理
+**partnerUserRef** 用來在 Webhook 裡對應「這筆交易」是哪一次開啟 Onramp、或哪一位用戶，方便後端做入帳、通知或風控。
 
-- 後端接收來自 Mobile App 的請求
-- 使用預先設定的 `CDP_KEY_ID` 和 `CDP_KEY_SECRET` 生成 JWT Token
-- 使用 JWT Token 向 Coinbase API 發送請求，取得 Session Token
-- 請求路徑：`POST /onramp/v1/token`
-- 請求標頭包含：`Authorization: Bearer {JWT}`
+| 階段     | 說明                                                                                                                         |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **產生** | 後端在 **onramp.prepare** 組裝 Onramp URL 時，為「這次開啟 Onramp」產生一組唯一值（本專案使用 UUID）。                       |
+| **傳遞** | 將 `partnerUserRef` 寫入 Onramp URL 的 query（`partnerUserRef=xxx`），使用者到 Coinbase 完成購買時，Coinbase 會原樣保留。    |
+| **回傳** | Coinbase 在每個 Webhook 事件 payload 中帶回 `partnerUserRef`，後端可從 `webhookData.partnerUserRef` 取得，與產生時的值一致。 |
 
-#### 4. Coinbase API 回應
-
-- Coinbase API 驗證 JWT Token 後，返回 Session Token
-- 回應內容包含：
-  - `token`: Session Token（用於初始化 Onramp widget）
-  - `channel_id`: Channel ID（用於追蹤交易）
-
-#### 5. 構建 Onramp URL
-
-- Mobile App 收到 Session Token 後，構建 Coinbase Onramp 的完整 URL
-- URL 格式：`https://pay.coinbase.com/buy/select-asset?sessionToken={token}&redirectUrl={redirectUrl}`
-- `redirectUrl` 設定為完成購買後要返回的頁面
-
-#### 6. 打開瀏覽器
-
-- Mobile App 使用 `Linking.openURL()` 打開系統瀏覽器
-- 用戶被導向 Coinbase Onramp 購買頁面
-
-#### 7. 完成購買
-
-- 用戶在 Coinbase Onramp 頁面完成購買流程
-- 可以選擇支付方式（Coinbase 帳戶餘額、銀行帳戶、信用卡等）
-- 完成後，加密貨幣會發送到指定的錢包地址
+**與自家用戶對應（可選）**：若要在 Webhook 裡辨識「是哪個登入用戶」或「哪一筆訂單」，可在 prepare 當下把 `partnerUserRef` 與你的 `userId`／`orderId` 存進 DB 或 KV；收到 Webhook 時用 `partnerUserRef` 查表即可。本專案後端支援透過 context 的 `onPrepareOnrampUrl` hook 在回傳 URL 前拿到 `partnerUserRef`，可在此 hook 內寫入儲存邏輯。
 
 ### Webhook
 
@@ -180,14 +165,41 @@ sequenceDiagram
 
 ##### 3. 支援的事件類型
 
-| 事件類型                     | 說明                   | 處理邏輯                             |
-| ---------------------------- | ---------------------- | ------------------------------------ |
-| `onramp.transaction.created` | 新的 Onramp 交易已建立 | 記錄交易建立日誌                     |
-| `onramp.transaction.updated` | Onramp 交易狀態已變更  | 記錄交易更新日誌                     |
-| `onramp.transaction.success` | Onramp 交易成功完成    | 記錄交易成功資訊（金額、幣種、網路） |
-| `onramp.transaction.failed`  | Onramp 交易失敗        | 記錄失敗原因和詳細資訊               |
+| 事件類型                                                      | 說明                   | 處理邏輯                                             |
+| ------------------------------------------------------------- | ---------------------- | ---------------------------------------------------- |
+| `onramp.transaction.created`                                  | 新的 Onramp 交易已建立 | 記錄交易建立日誌                                     |
+| `onramp.transaction.updated`                                  | Onramp 交易狀態已變更  | 記錄交易更新日誌                                     |
+| `onramp.transaction.success` / `onramp.transaction.completed` | Onramp 交易成功完成    | 記錄交易成功資訊（金額、幣種、網路、partnerUserRef） |
+| `onramp.transaction.failed`                                   | Onramp 交易失敗        | 記錄失敗原因和詳細資訊                               |
 
-##### 4. 事件處理邏輯
+##### 4. Payload 結構
+
+Coinbase 會依不同入口（Widget 一般結帳、Apple Pay 等）推送不同格式的 payload，實作時需同時支援多種欄位名稱。完整範例見官方 [Sample transaction event payloads](https://docs.cdp.coinbase.com/onramp-&-offramp/webhooks#sample-transaction-event-payloads)。
+
+**共通欄位**
+
+| 欄位                        | 說明                                                                                    |
+| --------------------------- | --------------------------------------------------------------------------------------- |
+| `eventType` / `event`       | 事件類型，如 `onramp.transaction.updated`、`onramp.transaction.success`                 |
+| `transactionId` / `orderId` | 交易 ID（不同格式用不同 key）                                                           |
+| `partnerUserRef`            | 後端在 prepare 時帶入的參考值，用於對應用戶或訂單                                       |
+| `status`                    | 交易狀態（如 `ONRAMP_TRANSACTION_STATUS_IN_PROGRESS`、`ONRAMP_ORDER_STATUS_COMPLETED`） |
+
+**Widget / Guest checkout 常見格式**
+
+- 金額：`purchaseAmount`（可能為物件 `{ currency, value }` 或字串）、`purchaseCurrency`、`paymentTotal`、`paymentSubtotal`
+- 網路／地址：`purchaseNetwork`、`walletAddress`
+- 其他：`country`、`paymentMethod`、`txHash`、`createdAt`、`completedAt`、`networkFee`、`coinbaseFee`、`exchangeRate`
+
+**Apple Pay Onramp API 常見格式**
+
+- 金額：`purchaseAmount`（字串）、`purchaseCurrency`、`paymentTotal`、`paymentSubtotal`、`paymentCurrency`、`fees[]`
+- 網路／地址：`destinationNetwork`、`destinationAddress`
+- 其他：`orderId`、`txHash`、`createdAt`、`updatedAt`、`exchangeRate`
+
+本專案 step 已同時處理上述兩種格式（如 `destinationNetwork` vs `purchaseNetwork`、`destinationAddress` vs `walletAddress`、`orderId` vs `transactionId`）。
+
+##### 5. 事件處理邏輯
 
 Webhook 事件會透過 Workflow 進行處理，目前實作包含：
 
@@ -230,11 +242,11 @@ Webhook 目標 URL 會根據環境自動設定：
 
 ##### 事件處理流程
 
-1. 接收 Webhook 請求
-2. 驗證簽名（透過 Guard middleware）
-3. 啟動 Workflow 異步處理
-4. 立即返回 `200` 狀態碼
-5. Workflow 解析事件並執行相應處理邏輯
+1. 接收 Webhook 請求（`POST /api/v1/onramp/webhooks`）
+2. 驗證簽名（`coinbaseHook0SignatureGuard` middleware 驗證 `X-Hook0-Signature`）
+3. 呼叫 `start(onrampWebhooksWorkflow)` 啟動 Workflow 異步處理
+4. 立即返回 `200` 與 `{ received: true, data: { id: workflow.runId } }`
+5. Workflow 內透過 `createWebhook()` 取得 request，再交由 step `onrampWebhooks` 解析 `eventType` 並記錄日誌
 
 #### 監控與維護
 
