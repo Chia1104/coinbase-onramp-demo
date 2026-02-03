@@ -1,6 +1,8 @@
 import { oc } from "@orpc/contract";
 import * as z from "zod";
 
+import { env } from "../env";
+
 export const SessionTokenRequest = z.object({
   addresses: z.array(
     z.object({
@@ -81,11 +83,21 @@ export type OnrampBuyConfigResponse = z.infer<typeof OnrampBuyConfigResponse>;
 
 export const OnrampBuyConfigContract = oc.output(OnrampBuyConfigResponse);
 
-export const PrepareRequest = z.object({
-  ...SessionTokenRequest.shape,
-  redirect_url: z.string(),
-  use_sandbox: z.boolean().optional(),
-});
+export const PrepareRequest = z
+  .object({
+    ...SessionTokenRequest.shape,
+    redirect_url: z.string(),
+    use_sandbox: z.boolean().optional(),
+  })
+  .refine(
+    (data) => {
+      const urls = env.CDP_DOMAIN_ALLOWLIST?.split(",") ?? [];
+      return urls.some((url) => data.redirect_url.includes(url));
+    },
+    {
+      message: "Redirect URL is not in the domain allowlist",
+    }
+  );
 
 export type PrepareRequest = z.infer<typeof PrepareRequest>;
 
