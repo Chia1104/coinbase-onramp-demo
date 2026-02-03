@@ -1,9 +1,5 @@
 import { defineConfig } from "nitro";
 
-const enableOnrampWebhooksCheck =
-  process.env.ENABLE_ONRAMP_WEBHOOKS_CHECK === "1" ||
-  process.env.ENABLE_ONRAMP_WEBHOOKS_CHECK === "true";
-
 export default defineConfig({
   serverDir: "src",
   modules: ["workflow/nitro"],
@@ -17,12 +13,10 @@ export default defineConfig({
   },
   noPublicDir: true,
   experimental: {
-    tasks: enableOnrampWebhooksCheck,
+    tasks: true,
   },
-  scheduledTasks: enableOnrampWebhooksCheck
-    ? {
-        // Run `onramp-webhooks-check` task every minute
-        "* * * * *": ["onramp-webhooks-check"],
-      }
-    : undefined,
+  scheduledTasks: {
+    // Run `onramp-webhooks-check` task every minute
+    "* * * * *": ["onramp-webhooks-check"],
+  },
 });
