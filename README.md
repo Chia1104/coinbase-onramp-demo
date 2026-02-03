@@ -188,12 +188,26 @@ Coinbase 會依不同入口（Widget 一般結帳、Apple Pay 等）推送不同
 
 **共通欄位**
 
-| 欄位                        | 說明                                                                                    |
-| --------------------------- | --------------------------------------------------------------------------------------- |
-| `eventType` / `event`       | 事件類型，如 `onramp.transaction.updated`、`onramp.transaction.success`                 |
-| `transactionId` / `orderId` | 交易 ID（不同格式用不同 key）                                                           |
-| `partnerUserRef`            | 後端在 prepare 時帶入的參考值，用於對應用戶或訂單                                       |
-| `status`                    | 交易狀態（如 `ONRAMP_TRANSACTION_STATUS_IN_PROGRESS`、`ONRAMP_ORDER_STATUS_COMPLETED`） |
+| 欄位                        | 說明                                                                    |
+| --------------------------- | ----------------------------------------------------------------------- |
+| `eventType` / `event`       | 事件類型，如 `onramp.transaction.updated`、`onramp.transaction.success` |
+| `transactionId` / `orderId` | 交易 ID（不同格式用不同 key）                                           |
+| `partnerUserRef`            | 後端在 prepare 時帶入的參考值，用於對應用戶或訂單                       |
+| `status`                    | 交易／訂單狀態，見下方 Order status 說明                                |
+
+**Order status（訂單狀態）**
+
+Webhook payload 或 [Get an onramp order by ID](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/onramp/get-an-onramp-order-by-id) 回應中的 `status` 可能為以下其一（v2 Onramp API 定義）：
+
+| 狀態                                  | 說明                       |
+| ------------------------------------- | -------------------------- |
+| `ONRAMP_ORDER_STATUS_PENDING_AUTH`    | 待驗證（例如待使用者授權） |
+| `ONRAMP_ORDER_STATUS_PENDING_PAYMENT` | 待付款                     |
+| `ONRAMP_ORDER_STATUS_PROCESSING`      | 處理中                     |
+| `ONRAMP_ORDER_STATUS_COMPLETED`       | 已完成                     |
+| `ONRAMP_ORDER_STATUS_FAILED`          | 失敗                       |
+
+Widget / Guest checkout 等可能使用不同前綴（如 `ONRAMP_TRANSACTION_STATUS_*`），實作時可依 `status` 字串判斷終態（完成／失敗）即可。
 
 **Widget / Guest checkout 常見格式**
 
