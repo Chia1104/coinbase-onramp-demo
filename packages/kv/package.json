@@ -17,14 +17,6 @@
       "types": "./src/env.ts",
       "default": "./src/env.ts"
     },
-    "./upstash": {
-      "types": "./src/upstash/client.ts",
-      "default": "./src/upstash/client.ts"
-    },
-    "./upstash/with-rate-limiter": {
-      "types": "./src/upstash/with-rate-limiter.ts",
-      "default": "./src/upstash/with-rate-limiter.ts"
-    },
     "./drizzle/cache": {
       "types": "./src/drizzle/cache.ts",
       "default": "./src/drizzle/cache.ts"
@@ -42,9 +34,7 @@
     "@keyv/valkey": "^1.0.11",
     "@repo/utils": "workspace:*",
     "@t3-oss/env-core": "catalog:",
-    "@upstash/ratelimit": "2.0.8",
-    "@upstash/redis": "1.36.1",
-    "drizzle-orm": "^0.45.1",
+    "drizzle-orm": "catalog:drizzle",
     "keyv": "^5.6.0",
     "zod": "catalog:"
   },

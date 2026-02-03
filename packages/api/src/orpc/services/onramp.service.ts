@@ -8,16 +8,25 @@ export const onrampRequest = ky.create({
   prefixUrl: "https://api.developer.coinbase.com/onramp/v1",
 });
 
+export const cdpRequest = ky.create({
+  prefixUrl: "https://api.cdp.coinbase.com",
+});
+
 export const generateToken = async (
   method: string,
   path: string,
-  expiresIn = 120
+  options?: {
+    expiresIn?: number;
+    host?: string;
+  }
 ) => {
+  const { expiresIn = 120, host = "api.developer.coinbase.com" } =
+    options ?? {};
   const jwt = await generateJwt({
     apiKeyId: env.CDP_KEY_ID,
     apiKeySecret: env.CDP_KEY_SECRET,
     requestMethod: method,
-    requestHost: "api.developer.coinbase.com",
+    requestHost: host,
     requestPath: path,
     expiresIn,
   });
