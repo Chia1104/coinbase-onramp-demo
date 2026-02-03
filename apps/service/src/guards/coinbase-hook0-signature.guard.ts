@@ -2,8 +2,6 @@ import crypto from "node:crypto";
 
 import { createMiddleware } from "hono/factory";
 
-import { env } from "../env";
-
 const MAX_AGE = 300;
 const HEADER_NAME = "X-Hook0-Signature";
 
@@ -185,10 +183,16 @@ export const coinbaseHook0SignatureGuard = createMiddleware<HonoContext>(
       return c.json({ error: "Missing signature header" }, 400);
     }
 
+    const webhooksSecret = await c.var.kv.get("onramp-webhooks-secret");
+
+    if (!webhooksSecret) {
+      return c.json({ error: "Missing webhooks secret" }, 400);
+    }
+
     const isValid = await verifyWebhookSignature(
       signatureHeader,
       c.req.raw.clone(),
-      env.WEBHOOK_SECRET
+      webhooksSecret
     );
 
     if (!isValid) {

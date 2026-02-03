@@ -1,3 +1,4 @@
+import { all } from "better-all";
 import { defineTask } from "nitro/task";
 
 import { generateToken, cdpRequest } from "@repo/api/orpc/onramp/services";
@@ -52,17 +53,27 @@ export default defineTask({
         }
       );
 
-      const subscription = await response.json<{ subscriptionId: string }>();
+      const subscription = await response.json<{
+        subscriptionId: string;
+        metadata: {
+          secret: string;
+        };
+      }>();
 
       if (!subscription) {
         console.warn("No subscription found");
         return { result: "No subscription found" };
       }
 
-      await kv.set(
-        "onramp-webhooks-subscription-id",
-        subscription.subscriptionId
-      );
+      await all({
+        subscriptionId: async () =>
+          await kv.set(
+            "onramp-webhooks-subscription-id",
+            subscription.subscriptionId
+          ),
+        secret: async () =>
+          await kv.set("onramp-webhooks-secret", subscription.metadata.secret),
+      });
 
       subscriptionId = subscription.subscriptionId;
 
@@ -86,9 +97,11 @@ export default defineTask({
       }
     );
 
+    const webhooksSecret = await kv.get("onramp-webhooks-secret");
+
     const subscriptions = await response.json<{ isEnabled: boolean }>();
 
-    if (!subscriptions.isEnabled) {
+    if (!subscriptions.isEnabled || !webhooksSecret) {
       console.warn("Subscription is not enabled, re-registering...");
       const jwt = await generateToken(
         "PUT",
@@ -98,7 +111,7 @@ export default defineTask({
         }
       );
 
-      await cdpRequest.put(
+      const response = await cdpRequest.put(
         `platform/v2/data/webhooks/subscriptions/${subscriptionId}`,
         {
           headers: {
@@ -107,6 +120,23 @@ export default defineTask({
           json: WEBHOOKS_REGISTER_DATA,
         }
       );
+
+      const subscription = await response.json<{
+        subscriptionId: string;
+        metadata: {
+          secret: string;
+        };
+      }>();
+
+      await all({
+        subscriptionId: async () =>
+          await kv.set(
+            "onramp-webhooks-subscription-id",
+            subscription.subscriptionId
+          ),
+        secret: async () =>
+          await kv.set("onramp-webhooks-secret", subscription.metadata.secret),
+      });
 
       console.log("Subscription re-registered:", subscriptionId);
     }

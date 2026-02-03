@@ -24,7 +24,6 @@ export const env = createEnv({
     MAINTENANCE_MODE: z.string().optional().default("false"),
     MAINTENANCE_BYPASS_TOKEN: z.string().optional(),
     TIMEOUT_MS: z.number().optional().default(10000),
-    WEBHOOK_SECRET: z.string(),
   },
   runtimeEnv: {
     PORT: process.env.PORT ? Number(process.env.PORT) : 3005,
@@ -47,7 +46,6 @@ export const env = createEnv({
         : "false",
     MAINTENANCE_BYPASS_TOKEN: process.env.MAINTENANCE_BYPASS_TOKEN,
     TIMEOUT_MS: process.env.TIMEOUT_MS || 10000,
-    WEBHOOK_SECRET: process.env.WEBHOOK_SECRET,
   },
   skipValidation:
     process.env.SKIP_ENV_VALIDATION === "true" ||
