@@ -8,6 +8,6 @@ export const router = contractOS.router({
   },
   onramp: {
     token: onrampRoutes.onrampTokenRoute,
-    options: onrampRoutes.onrampOptionsRoute,
+    buyConfig: onrampRoutes.onrampBuyConfigRoute,
   },
 });

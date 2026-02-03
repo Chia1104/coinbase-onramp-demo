@@ -7,6 +7,6 @@ export const routerContract = {
   },
   onramp: {
     token: onrampContracts.OnrampTokenContract,
-    options: onrampContracts.OnrampOptionsContract,
+    buyConfig: onrampContracts.OnrampBuyConfigContract,
   },
 };

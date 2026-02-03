@@ -22,9 +22,7 @@
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "type:check": "tsc --noEmit",
-    "clean": "git clean -xdf .turbo node_modules dist .cache",
-    "test": "vitest run",
-    "test:watch": "vitest"
+    "clean": "git clean -xdf .turbo node_modules dist .cache"
   },
   "dependencies": {
     "@coinbase/cdp-sdk": "^1.44.0",
@@ -42,6 +40,7 @@
   },
   "devDependencies": {
     "@chiastack/tsconfig": "catalog:chiastack",
+    "dotenv": "catalog:",
     "typescript": "catalog:"
   }
 }

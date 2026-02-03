@@ -1,9 +1,13 @@
-import { useTransition } from "react";
+import { useTransition, useRef } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Linking } from "react-native";
 import { View } from "react-native";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { LegendList } from "@legendapp/list";
+import type { LegendListRef } from "@legendapp/list";
+import { useQuery } from "@tanstack/react-query";
+import { useLocales } from "expo-localization";
 import {
   Button,
   Card,
@@ -14,11 +18,15 @@ import {
   Surface,
   ErrorView,
   Spinner,
+  Select,
+  Chip,
+  Label,
 } from "heroui-native";
 import * as z from "zod";
 
 import { PageLayout } from "@/components/page-layout";
 import { useGetOnrampUrl } from "@/lib/coinbase/hooks/use-get-onramp-url";
+import { orpc } from "@/lib/orpc/client";
 
 const formSchema = z.object({
   address: z.string().min(1),
@@ -73,6 +81,57 @@ const CheckboxField = ({
   );
 };
 
+const OnrampConfigSelect = () => {
+  const { data: onrampConfig } = useQuery(orpc.onramp.buyConfig.queryOptions());
+  const listRef = useRef<LegendListRef>(null);
+  const locales = useLocales();
+
+  return (
+    <Select
+      defaultValue={{
+        value: locales[0].regionCode ?? "",
+        label: locales[0].regionCode ?? "",
+      }}>
+      <Select.Trigger asChild>
+        <Button variant="secondary">
+          <Select.Value placeholder="Select Country" />
+        </Button>
+      </Select.Trigger>
+      <Select.Portal>
+        <Select.Overlay />
+        <Select.Content>
+          <LegendList
+            data={onrampConfig?.countries ?? []}
+            renderItem={({ item }) => (
+              <Select.Item
+                key={item.id}
+                value={item.id}
+                label={item.id}
+                className="flex-col items-start gap-2">
+                <Label>
+                  <Label.Text>{item.id}</Label.Text>
+                </Label>
+                <View className="flex-row flex-wrap gap-2">
+                  {item.payment_methods.map((method) => (
+                    <Chip key={method.id} size="sm" variant="primary">
+                      {method.id}
+                    </Chip>
+                  ))}
+                </View>
+              </Select.Item>
+            )}
+            keyExtractor={(item) => item.id}
+            recycleItems={true}
+            maintainVisibleContentPosition
+            ref={listRef}
+            className="h-100 w-100 flex-1"
+          />
+        </Select.Content>
+      </Select.Portal>
+    </Select>
+  );
+};
+
 export default function HomeScreen() {
   const [isPending, startTransition] = useTransition();
   const { mutateAsync: getOnrampUrl } = useGetOnrampUrl();
@@ -111,6 +170,7 @@ export default function HomeScreen() {
           </Card.Header>
           <Card.Body className="gap-4">
             <Card.Description>This is a test</Card.Description>
+            <OnrampConfigSelect />
             <Controller
               name="network"
               control={form.control}

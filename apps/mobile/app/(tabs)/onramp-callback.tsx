@@ -8,7 +8,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 import VectorIcon from "@expo/vector-icons/Ionicons";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { useRouter, useGlobalSearchParams } from "expo-router";
 import { Button, Card, Spinner, Divider } from "heroui-native";
 
 import { PageLayout } from "@/components/page-layout";
@@ -175,7 +175,9 @@ function getStatusLabel(status: OnrampStatus) {
 
 export default function CallbackScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams();
+  const params = useGlobalSearchParams();
+
+  console.log("params", params);
 
   const displayData = useMemo(() => {
     const sessionId = (params.session_id as string) ?? MOCK_STATUS.sessionId;

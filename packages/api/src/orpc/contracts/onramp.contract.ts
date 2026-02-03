@@ -62,3 +62,21 @@ export type OnrampOptionsResponse = z.infer<typeof OnrampOptionsResponse>;
 export const OnrampOptionsContract = oc
   .input(OnrampOptionsRequest)
   .output(OnrampOptionsResponse);
+
+export const OnrampBuyConfigResponse = z.object({
+  countries: z.array(
+    z.object({
+      id: z.string(),
+      subdivisions: z.array(z.string()),
+      payment_methods: z.array(
+        z.object({
+          id: z.string(),
+        })
+      ),
+    })
+  ),
+});
+
+export type OnrampBuyConfigResponse = z.infer<typeof OnrampBuyConfigResponse>;
+
+export const OnrampBuyConfigContract = oc.output(OnrampBuyConfigResponse);

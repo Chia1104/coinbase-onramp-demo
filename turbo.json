@@ -23,10 +23,6 @@
       "cache": false,
       "persistent": true
     },
-    "dev:turbo": {
-      "cache": false,
-      "persistent": true
-    },
     "start": {
       "cache": false
     },

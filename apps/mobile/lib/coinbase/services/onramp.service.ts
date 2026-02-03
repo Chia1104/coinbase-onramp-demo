@@ -1,4 +1,5 @@
 import type { InferClientInputs } from "@orpc/client";
+import * as Crypto from "expo-crypto";
 
 import { client } from "@/lib/orpc/client";
 
@@ -24,5 +25,6 @@ export const getOnrampBuyUrl = async (
   const url = new URL(baseUrl);
   url.searchParams.set("sessionToken", response.token);
   url.searchParams.set("redirectUrl", redirectUrl);
+  url.searchParams.set("partnerUserRef", Crypto.randomUUID());
   return url.toString();
 };

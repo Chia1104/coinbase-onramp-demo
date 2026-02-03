@@ -44,3 +44,20 @@ export const generateSessionToken = async (
     channel_id: string;
   }>();
 };
+
+export const getBuyConfig = async (jwt: string) => {
+  const response = await onrampRequest.get("buy/config", {
+    headers: {
+      Authorization: `Bearer ${jwt}`,
+    },
+  });
+  return response.json<{
+    countries: {
+      id: string;
+      subdivisions: string[];
+      payment_methods: {
+        id: string;
+      }[];
+    }[];
+  }>();
+};
