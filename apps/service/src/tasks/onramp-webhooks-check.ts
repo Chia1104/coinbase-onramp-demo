@@ -3,6 +3,11 @@ import { defineTask } from "nitro/task";
 import { generateToken, cdpRequest } from "@repo/api/orpc/onramp/services";
 import { kv } from "@repo/kv";
 
+const TARGET_HOST =
+  process.env.NODE_ENV === "production"
+    ? "https://coinbase-onramp-demo.zeabur.app"
+    : "http://localhost:3001";
+
 const WEBHOOKS_REGISTER_DATA = {
   description: "Onramp transaction status webhook",
   eventTypes: [
@@ -12,7 +17,7 @@ const WEBHOOKS_REGISTER_DATA = {
     "onramp.transaction.failed",
   ],
   target: {
-    url: "http://localhost:3001/api/v1/onramp/webhooks",
+    url: `${TARGET_HOST}/api/v1/onramp/webhooks`,
     method: "POST",
   },
   labels: {},
