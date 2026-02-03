@@ -101,69 +101,11 @@ export default defineTask({
 
     const subscriptions = await response.json<{ isEnabled: boolean }>();
 
-    /**
-     * Force re-register the webhook if it is enabled and the secret is not set
-     */
-    if (subscriptions.isEnabled && !webhooksSecret) {
-      console.warn(
-        "Webhook is enabled but secret is not set, re-registering..."
-      );
-      const deleteJwt = await generateToken(
-        "DELETE",
-        `/platform/v2/data/webhooks/subscriptions/${subscriptionId}`,
-        {
-          host: "api.cdp.coinbase.com",
-        }
-      );
-      await cdpRequest.delete(
-        `platform/v2/data/webhooks/subscriptions/${subscriptionId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${deleteJwt}`,
-          },
-        }
-      );
-      const registerJwt = await generateToken(
-        "POST",
-        `/platform/v2/data/webhooks/subscriptions`,
-        {
-          host: "api.cdp.coinbase.com",
-        }
-      );
-      const response = await cdpRequest.post(
-        `platform/v2/data/webhooks/subscriptions`,
-        {
-          headers: {
-            Authorization: `Bearer ${registerJwt}`,
-          },
-          json: WEBHOOKS_REGISTER_DATA,
-        }
-      );
-      const subscription = await response.json<{
-        subscriptionId: string;
-        metadata: {
-          secret: string;
-        };
-      }>();
-
-      await all({
-        subscriptionId: async () =>
-          await kv.set(
-            "onramp-webhooks-subscription-id",
-            subscription.subscriptionId
-          ),
-        secret: async () =>
-          await kv.set("onramp-webhooks-secret", subscription.metadata.secret),
-      });
-
-      console.log("Subscription re-registered:", subscriptionId);
-    }
-
-    if (!subscriptions.isEnabled) {
+    if (!subscriptions.isEnabled || !webhooksSecret) {
       console.warn("Subscription is not enabled, re-registering...");
       const jwt = await generateToken(
         "PUT",
-        `/platform/v2/data/webhooks/subscriptions//${subscriptionId}`,
+        `/platform/v2/data/webhooks/subscriptions/${subscriptionId}`,
         {
           host: "api.cdp.coinbase.com",
         }
