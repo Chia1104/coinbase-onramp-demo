@@ -49,7 +49,6 @@ sequenceDiagram
 graph TB
     subgraph "前端層"
         A[Mobile App<br/>React Native]
-        W[Web www<br/>callback / 深連結入口]
     end
 
     subgraph "後端層 apps/service"
@@ -67,7 +66,6 @@ graph TB
     R -->|回傳 url| A
     A -->|打開 URL| D[Coinbase Onramp<br/>購買頁面]
     C -->|Webhook 事件| H
-    W -.->|深連結| A
 
     style A fill:#e1f5ff
     style R fill:#fff4e1
@@ -108,6 +106,12 @@ graph TB
 #### 概述
 
 Webhooks 提供即時的交易狀態更新通知。當用戶完成購買交易後，Coinbase 會主動推送交易狀態變更事件到我們設定的 Webhook 端點，讓後端能夠即時同步交易狀態，無需主動輪詢查詢。
+
+> 在沙盒環境測試時，位於 [pay-sandbox.coinbase.com](http://pay-sandbox.coinbase.com/) 的 Onramp 沙盒可支援測試訪客結帳流程。
+>
+> 請注意：CDP 支付 API 沙盒不支援 webhook（webhook 僅在正式環境可用）。
+>
+> 測試替代方案：可在沙盒測試期間使用「[取得所有](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/get-all-onramp-transactions)入金交易 API」或「依 ID[取得入金](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/get-onramp-transactions-by-id)交易 API」來輪詢交易狀態。
 
 #### Webhook 流程圖
 
