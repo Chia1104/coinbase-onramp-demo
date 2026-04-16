@@ -4,7 +4,7 @@ packages:
 
 catalog:
   '@t3-oss/env-core': ^0.13.10
-  '@t3-oss/env-nextjs': ^0.13.10
+  '@t3-oss/env-nextjs': ^0.13.11
   '@types/lodash': ^4.17.23
   '@types/node': 25.1.0
   better-all: 0.0.7
