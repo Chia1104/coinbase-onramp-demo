@@ -75,7 +75,7 @@ catalogs:
     vitest: 4.0.18
   vite:
     '@vitejs/plugin-react': 5.1.2
-    vite: 7.3.1
+    vite: 7.3.6
     vite-tsconfig-paths: 5.1.4
 
 linkWorkspacePackages: true
