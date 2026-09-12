@@ -32,8 +32,8 @@ catalogs:
     drizzle-orm: 1.0.0-beta.12-a5629fb
     drizzle-zod: 1.0.0-beta.12-a5629fb
   heroui-v3:
-    '@heroui/react': 3.0.0-beta.5
-    '@heroui/styles': 3.0.0-beta.5
+    '@heroui/react': 3.2.5
+    '@heroui/styles': 3.2.5
   next:
     '@next/third-parties': 16.1.6
     next: 16.1.6
